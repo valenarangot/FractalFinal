@@ -11,6 +11,10 @@ export * from './contactPage/contactPage'
 //Projects
 export * from './projectsPage/projectsPage'
 
+//Error
+
+export * from './errorPage/errorPage'
+
 // Paginas admin
 
 export * from './submitPage/SubmitPage'
