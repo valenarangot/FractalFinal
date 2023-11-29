@@ -1,0 +1,87 @@
+  :root {
+    --DegradadoCabezote: linear-gradient(90deg, rgb(83, 50, 216) 0%, rgba(83, 50, 216, 0.70) 33.67%, rgba(255, 255, 255, 0.20) 100%), 
+  }
+
+  .Slider {
+    text-align: left;
+
+    width: 98.9vw;
+    height: 444px;
+
+    margin: 0 0 5vh 0;
+
+    background-size: cover;
+}
+
+
+    .UI {
+        background-image: 
+                            var(--DegradadoCabezote)
+                            url('../../../assets/cabezote/SliderUI.png');
+    }
+  
+    .UX {
+        background-image: 
+                            var(--DegradadoCabezote)
+                            url('../../../assets/cabezote/SliderUX.jpg');
+    }
+
+    .Frontend {
+        background-image: 
+                            var(--DegradadoCabezote)
+                            url('../../../assets/cabezote/SliderFrontend.png');
+    }
+
+    .Branding {
+        background-image:
+                            var(--DegradadoCabezote)
+                            url('../../../assets/cabezote/SliderBranding.jpg');
+   }
+
+    .Consultancy {
+        background-image: 
+                            var(--DegradadoCabezote)
+                            url('../../../assets/cabezote/SliderConsultancy.jpeg');
+    }
+
+    .Projects {
+        background-image:   
+                            var(--DegradadoCabezote)
+                            url('../../../assets/cabezote/SliderProjects.png');
+    }
+
+.TextDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+    .Title{
+        padding-left: 13vh;
+
+        width: 480px;
+
+        font-family: Typographica;
+        /* color: var(--purple, #5332D8); */
+        color: white;
+        font-size: 70px;
+        font-weight: 400;
+        line-height: 88.4%;
+    }
+
+    .Description{
+        padding-left: 13vh;
+
+        width: 467px;
+        height: 140px;
+
+        color: var(--Grey-1, rgba(0, 0, 0, 0.70));
+        color: white;
+
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }

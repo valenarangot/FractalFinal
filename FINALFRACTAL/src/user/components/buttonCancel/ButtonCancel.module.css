@@ -1,0 +1,42 @@
+
+
+.buttonCancel {
+    width: 2vw;
+    height: 2vw;
+    appearance: none;
+    background-color: white;
+    border-radius: 50px;
+    box-sizing: border-box;
+    color: var(--Purple);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+    justify-content: center;
+    align-items: center;
+   }
+   
+   .buttonCancel:disabled {
+    pointer-events: none;
+   }
+   
+   .buttonCancel:hover {
+    color: #fff;
+    background-color: var(--Purple);
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+   }
+   
+   .buttonCancel:active {
+    box-shadow: none;
+    transform: translateY(0);
+   }

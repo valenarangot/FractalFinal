@@ -1,0 +1,28 @@
+.button-back{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    align-items: center;
+    display: flex;
+    width: 115px;
+    height: 36.866px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 35px;
+    background: #FFF;
+    color: #C522FF;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.button-icon {
+    margin-right: 10px;
+    margin-top: 2px
+}
+  

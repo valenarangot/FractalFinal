@@ -1,0 +1,22 @@
+.button-cancel{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    align-items: center;
+    display: flex;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    min-width: 2px;
+    padding: 5px 10px;
+    background-color: #FFF;
+    color: #C522FF;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+}

@@ -1,0 +1,33 @@
+.article{
+    display: flex;
+    flex-direction: column;
+    padding: 4rem 12rem;
+}
+
+.article h2{
+    font-family: Typographica;
+    font-size: 3rem;
+    font-weight: 400;
+    letter-spacing: 2.4px;
+    color: #5332D8;
+    margin: 0;
+    margin-bottom: 4rem;
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.paragraph{
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #5332D8;
+}
+
+.paragraph a{
+    font-weight: 700;
+    color: #FF7D00;   
+}

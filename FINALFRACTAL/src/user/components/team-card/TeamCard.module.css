@@ -1,0 +1,35 @@
+.cardTeam {
+    width: 330px;
+    height: 200px;
+    transition: all 0.2s;
+    position: relative;
+    cursor: pointer;
+
+    
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    border-color: whitesmoke;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: left;
+    margin: 1vh 1vw;
+    padding: 0vh 0.5vw;
+}
+
+    .cardTeam img{
+        margin-right: 0;
+        max-width: 200px;
+        max-height: 200px;
+    }
+  
+  
+    
+  
+  
+  .cardTeam:hover {
+    transform: scale(1.04) rotate(1deg);
+  }

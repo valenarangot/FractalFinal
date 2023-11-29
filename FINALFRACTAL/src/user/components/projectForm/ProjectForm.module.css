@@ -1,0 +1,116 @@
+  .Form{
+    display: flex;
+    flex-direction: column;
+
+    width: 80vw;
+    margin: 0 auto;
+    padding: 3vh 3vw;
+
+    border-radius: 15px;
+
+    background: var(--Degradado);
+    color: white;
+
+    text-align: left;
+    font-family: Montserrat;
+}
+
+.InputsDiv{
+    display: flex;
+    margin: 3vh 0;
+}
+
+    .ImagesSection{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        width: 32vw;   
+        height: 82vh;
+        padding: 0 3vw;
+
+        margin-right: 5vw;
+
+        border-radius: 20px;
+        background: #FFF;
+    }
+        
+            .LoadImg {
+                width: 12vh;
+            }
+            
+            .LoadText{
+                color: #5332D8;
+                text-align: center;
+                font-family: Typographica;
+                font-weight: 400;
+            }
+
+            .labelInputFile {
+                background-color: #5332D8;
+                color: white;
+
+                margin: 8vh auto 0;
+                padding: 2vh 2vw;
+                border-radius: 50px;
+
+                cursor: pointer;
+            }
+            
+                .inputFile {
+                    display: none;
+                }
+            
+            .LoadDescription{
+                color: black;
+            }
+
+    .InfoSection{
+        width: 60%;
+    }
+
+     .TitleInput{
+         width: 44.5vw;
+         height: 4vh;
+
+         margin: -4vh 0 2vh;
+
+         border-radius: 38px;
+         border: 2px solid #D9D9D9;
+         background: #FFF;
+     }
+        .Options{
+            display: flex;
+            margin-bottom: 3vh;
+        }
+
+            .CheckboxLabel{
+                display: flex;
+                align-items: center;
+                margin: 0 2.5vh 0 0;
+                font-size: 14px;
+            }
+
+            .CheckboxInput{
+                width: 3vh;
+                padding: 10px;
+                margin: 0 1vh 0 0;
+                border: 2px solid #d9d9d9;
+                border-radius: 10px;
+                outline: none;
+                background: #ffffff;
+            }
+
+        .DescriptionInput{
+            width: 43vw;
+            height: 11.5vh;
+            resize: none;
+
+            border-radius: 15px;
+            border: 2px solid #D9D9D9;
+            background: #FFF;
+
+            padding: 2vh;
+            font-family: Montserrat;
+        }

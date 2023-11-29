@@ -1,0 +1,30 @@
+.proyect-card{
+    width: 620px;
+    height: 717px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(16, 18, 30, 0.10) 0%, rgba(16, 18, 30, 0.75) 100%);
+
+    transition: all 0.5s;
+    text-align: left;
+    box-sizing: border-box;
+    padding: 5vh 3vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+
+    &:hover{
+        scale: 1.05;
+        cursor: pointer;
+    }
+}
+
+.proyect-card h2{
+    margin: 0;
+    font-weight: 600;
+}
+
+.proyect-card h3{ 
+    font-weight: 400;
+}

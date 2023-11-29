@@ -1,0 +1,134 @@
+.Overlay{
+    background-color: rgba(0, 0, 0, 0.50);
+    width: 100vw;
+    height: 150vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backdrop-filter: blur(5px);
+    z-index: 4;
+}
+
+.ModalContainer{
+    width: 90vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.CloseButton{
+    z-index: 1;
+    position: absolute;
+    margin: 2vh;
+    top: 0;
+    right: 0;
+    scale: 1.1;
+}
+
+.Modal{
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    color: white;
+    text-align: left;
+    font-family: Montserrat;
+}
+
+.Header{
+    height: 80vh;
+    margin: 0;
+    padding: 0 0 5vh 10vh;
+    /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 19.05%, rgba(0, 0, 0, 0.00) 100%); */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end;
+}
+
+.Header h1{
+    font-weight: bold;
+    font-family: Montserrat;
+    color: white;
+}
+
+    /* .BackgroundImage{
+        overflow-y: hidden;
+        display: flex;
+        width: 90vw;
+        
+        animation: scrollImages 30s linear infinite; 
+    } */
+
+        /* .BackgroundImage img{
+            overflow: hidden;
+            width: 90vw;
+        } */
+
+    /* .BackgroundImages{
+            display: flex;
+            width: 90vw;
+            overflow-x: auto;
+            animation: scrollImages 30s linear infinite; 
+        } */
+    
+
+        /* .BackgroundImages img{
+            height: 85vh;
+        } */
+
+        /* .HeaderBackground {
+            position: absolute;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        } */
+        
+        /* @keyframes scrollImages {
+            0% {
+              transform: translateX(0);
+            }
+            50% {
+              transform: translateX(calc(-100% + 100vw));
+            }
+            100% {
+                transform: translateX(0);
+              }
+          } */
+
+    .HeaderTitle{
+        margin-bottom: 0;
+    }
+
+.Body{
+    display: flex;
+    flex-direction: column;    
+    background-color: #10121E;
+    margin: 0;
+    padding: 5vh 10vh;
+}
+
+    .Info{
+        display: flex;
+    }
+
+        .InfoDescription{
+            width: 45vw;
+        }
+
+        .InfoTools{
+            margin: 0 10vw;
+        }
+
+            .ToolLogo{
+                width: 2vw;
+                margin: 0 2vh 3vh 0;
+            }
+    
+    .ButtonDiv{
+        margin: 0 auto;
+        width: 20vw;
+        display: flex;
+        justify-content: space-around;
+    }

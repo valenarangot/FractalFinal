@@ -1,0 +1,105 @@
+.section{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 1rem 1rem 0 0;
+    filter: drop-shadow(5px 5px 15px rgba(83, 50, 216, 0.15));
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    padding: 3rem;
+    background-color: #5332D8;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.header p{
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: left;
+    color: #F1F0F0;
+}
+
+.header img{
+    width: 3.75rem;
+    height: 3.75rem;
+    object-fit: cover;
+    margin-right: 3rem;
+}
+
+.header p{
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: left;
+    color: #F1F0F0;
+    margin: 0;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    gap: 3rem;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.input{
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-weight: 400;
+    border: none;
+    border-bottom: 2px solid #bebebe;
+    padding: .5rem 1rem;
+    background-color: transparent;
+    width: 95%
+}
+
+.horizontalInputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.horInput{
+    width: 40%;
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-weight: 400;
+    border: none;
+    border-bottom: 2px solid #bebebe;
+    padding: .5rem 1rem;
+    background-color: transparent;
+}
+
+.textarea{
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 1rem;
+    border: 2px solid #bebebe;
+    border-radius: .5rem;
+    resize: none;
+}
+
+.button{
+    align-self: flex-end;
+    font-family: Montserrat;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: white;
+    padding: 1rem 4rem;
+    background-color: #FF7D00;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+}

@@ -1,0 +1,83 @@
+.landingContent{
+    display: flex; /* Utilizamos flexbox para controlar el diseño */
+    flex-direction: column; /* Establecemos una dirección de columna para apilar elementos verticalmente */
+    align-items: center;
+    margin-left: -1vw;
+}
+
+.section1{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 1vh 0;
+ 
+}
+
+    .contentSection1Left{
+        margin-top: 15vh;
+        padding-top: 10vh;
+        padding-left: 9vw;
+        text-align: left;
+    }
+
+        .contentSection1Left h1{
+
+            padding-bottom: 3vh;
+        }
+
+        .contentSection1Left p{
+
+            width: 25vw;    
+            padding-bottom: 3vh;
+        }
+
+        .contentSection1Right{
+          margin-right: -10vw;
+          margin-top: -10vh;
+         
+        }
+
+        .contentSection1Right img{
+            width: 60vw;
+            margin-right: 10vw;
+            
+          }
+
+.section2{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    margin: -10vh 1vw 10vh 1vw;
+}
+
+    .contentSection2Left{
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    .contentSection2Left h1{
+        margin-left: -20vw;
+        padding-left: 0;
+        padding-bottom: 10vh;
+    }
+
+    .contentSection2Right{
+        padding-top: 20vh;
+        padding-right: 10vw;
+        display: flex; /* Utilizamos flexbox para controlar el diseño */
+        flex-direction: column; /* Establecemos una dirección de columna para apilar elementos verticalmente */
+        align-items: center;
+    }
+
+    
+.section4{
+    margin-top: 15vh;
+}
+
+    .section4 h1{
+        margin-bottom: -5vh;
+    }
+
+.section5{
+    margin-bottom: -10vh;
+}

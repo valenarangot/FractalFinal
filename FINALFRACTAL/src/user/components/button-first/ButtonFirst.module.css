@@ -1,0 +1,23 @@
+.buttonFirst{
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--Orange); /* Color de fondo del botón */
+  color: #fff; /* Color del texto */
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  
+}
+
+.buttonFirst:hover {
+  background: rgb(249, 216, 195);
+  color: var(--Orange);
+  border: 2px;
+  border-color: var(--Orange);
+  font-size: 18px;
+}
+

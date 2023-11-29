@@ -1,0 +1,28 @@
+
+.modalAction{
+  width: 100vw;
+  padding-top: 5vh;
+  padding-left: 1vh;
+  padding-bottom: 5vh;
+  margin-top: 10vh;
+  background: var(--Degradado);
+    
+    
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modalAction h1{
+  color: white;
+}
+
+body.modal-open {
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.carrouselTeam{
+  display: flex;
+  
+}
+
