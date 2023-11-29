@@ -129,9 +129,18 @@ export function ProjectForm () {
 
   return (
     <form className={styles.Form}>
-      <div>
-        <div className={styles.InputsDiv}>
 
+      <div className={styles.Inputs}>
+            <h4 htmlFor='project-title'>Title*</h4>
+            <input 
+              className={styles.TextInput}
+              type='text'
+              id='project-title'
+              name='title'
+              onChange={handleOnChange}
+            />
+
+        <div className={styles.Checkboxes}>
           {/* Load images */}
           <div className={styles.ImagesSection}>
             {imageUpload === null
@@ -155,17 +164,8 @@ export function ProjectForm () {
             <p className={styles.LoadDescription}>You can only upload one image</p>
           </div>
 
-          {/* Inputs */}
-          <div className={styles.InfoSection}>
-            <h4 htmlFor='project-title'>Title*</h4>
-            <input 
-              className={styles.TitleInput}
-              type='text'
-              id='project-title'
-              name='title'
-              onChange={handleOnChange}
-            />
-
+          {/* Checkboxes */}
+          <div className={styles.CheckboxesSection}>
             {/* Type */}
             <h4>Type of project*</h4>
             <div className={styles.Options}>
@@ -345,9 +345,11 @@ export function ProjectForm () {
                 /> NodeJs
               </label>
             </div>
+          </div>
+        </div>
 
-            {/* Description */}
-            <h4>Description*</h4>
+        {/* Description */}
+        <h4>Description*</h4>
             <textarea
               className={styles.DescriptionInput}
               id='project-description'
@@ -360,18 +362,18 @@ export function ProjectForm () {
             {/* Behance */}
             <h4 htmlFor='project-title'>Behance*</h4>
             <input 
-              className={styles.TitleInput}
+              className={styles.TextInput}
               type='text'
               id='project-behance'
               name='behance'
               onChange={handleOnChange}
             />
-          </div>
-        </div>
       </div>
 
       {/* Submit */}
-      <ButtonFirst title='Send' onClick={handleSubmit}/>
+      <div className={styles.btn}>
+        <ButtonFirst title='Send' onClick={handleSubmit}/>
+      </div>
     </form>
   )
 }

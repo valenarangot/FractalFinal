@@ -15,7 +15,32 @@
     font-family: Montserrat;
 }
 
-.InputsDiv{
+.TextInput{
+    width: 77.5vw;
+    height: 4vh;
+
+    margin: 0 0 2vh;
+    padding: 0 2vh;
+
+    border-radius: 38px;
+    border: 2px solid #D9D9D9;
+    background: #FFF;
+}
+
+.DescriptionInput{
+    width: 77.5vw;
+    height: 5vh;
+    resize: none;
+
+    border-radius: 15px;
+    border: 2px solid #D9D9D9;
+    background: #FFF;
+
+    padding: 2vh;
+    font-family: Montserrat;
+}
+
+.Checkboxes{
     display: flex;
     margin: 3vh 0;
 }
@@ -27,7 +52,7 @@
         justify-content: center;
 
         width: 32vw;   
-        height: 82vh;
+        height: 48vh;
         padding: 0 3vw;
 
         margin-right: 5vw;
@@ -66,20 +91,10 @@
                 color: black;
             }
 
-    .InfoSection{
+    .CheckboxesSection{
         width: 60%;
     }
 
-     .TitleInput{
-         width: 44.5vw;
-         height: 4vh;
-
-         margin: -4vh 0 2vh;
-
-         border-radius: 38px;
-         border: 2px solid #D9D9D9;
-         background: #FFF;
-     }
         .Options{
             display: flex;
             margin-bottom: 3vh;
@@ -102,15 +117,6 @@
                 background: #ffffff;
             }
 
-        .DescriptionInput{
-            width: 43vw;
-            height: 11.5vh;
-            resize: none;
-
-            border-radius: 15px;
-            border: 2px solid #D9D9D9;
-            background: #FFF;
-
-            padding: 2vh;
-            font-family: Montserrat;
-        }
+.btn{
+    margin: 3vh auto;
+}
