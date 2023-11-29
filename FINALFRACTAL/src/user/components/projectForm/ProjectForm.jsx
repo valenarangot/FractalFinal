@@ -20,6 +20,7 @@ export function ProjectForm () {
     members: [],
     type: [],
     description:"",
+    behance: "",
     designTools: {
       Figma: false,
       Illustrator: false,
@@ -27,7 +28,7 @@ export function ProjectForm () {
       AfterEffects: false,
       PremierePro: false
     },
-  codingTools: {
+    codingTools: {
       React: false,
       JS: false,
       HTML: false,
@@ -353,6 +354,16 @@ export function ProjectForm () {
               name='description'
               rows='4'
               cols='50'
+              onChange={handleOnChange}
+            />
+
+            {/* Behance */}
+            <h4 htmlFor='project-title'>Behance*</h4>
+            <input 
+              className={styles.TitleInput}
+              type='text'
+              id='project-behance'
+              name='behance'
               onChange={handleOnChange}
             />
           </div>
