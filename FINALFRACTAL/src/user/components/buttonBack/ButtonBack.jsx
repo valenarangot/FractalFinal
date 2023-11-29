@@ -1,13 +1,16 @@
 import React from "react";
 import './ButtonBack.css'
+import { useNavigate } from 'react-router-dom'
 
-export function ButtonBack({title, onClick}){
+export function ButtonBack(){
 
+    const navigate = useNavigate()
+    
     return(
         <>
             <button
             className="button-back"
-            onClick={onClick}>
+            onClick={() => navigate(-1)}>
                <span className="button-icon">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -19,7 +22,7 @@ export function ButtonBack({title, onClick}){
                          <path d="M9.06657 17.7798L0.655273 9.36845L9.06657 0.957153L10.5596 2.45016L3.64128 9.36845L10.5596 16.2867L9.06657 17.7798Z" />
                          </svg>
                     </span>
-            {title} Volver
+            Go back
             </button>
         </>
     )

@@ -1,26 +1,26 @@
 import React from "react"
 import { Header, Footer, Cabezote, Card1, Card2, Card3 } from "../../../components"
-import styles from "./UserExperiencePage.module.css"
+import styles from "./FrontendPage.module.css"
 import { useNavigate } from 'react-router-dom'
 
-export function UserExperiencePage (){
+export function FrontendPage (){    
 
     const navigate = useNavigate()
 
     const items = {
-        item1: 'User research',
-        item2: 'Interaction design',
-        item3: 'Information architecture',
-        item4: 'Usability testing',
-        item5: 'Data analytics'
+        item1: 'Frontend development (javaScript, HTML, CSS)',
+        item2: 'Component library development',
+        item3: 'Performance optimization',
+        item4: 'Accessibility implementation',
+        item5: 'Code reviews and quality assurance'
     }
 
     return (
         <>
             <Header/>
-            <Cabezote type='UX' />
+            <Cabezote type='Frontend' />
             <article className={styles.article}>
-                <h2>UX Packages</h2>
+                <h2>Frontend Packages</h2>
                 <div className={styles.cards}>
                     <Card1 items={items}/>
                     <Card2 items={items}/>

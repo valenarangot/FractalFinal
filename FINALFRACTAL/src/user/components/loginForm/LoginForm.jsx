@@ -15,13 +15,13 @@ export function LoginForm (){
                 <input type="email" id="email" placeholder="123456@gmail.com"/>
             </div>
             <div className={styles.inputContainer}>
-                <label htmlFor="password">Contraseña</label>
+                <label htmlFor="password">Password</label>
                 <input type="password" id="password" placeholder="**********"/>
             </div>
         </div>
         <div className={styles.actions}>
-            <span>Si no eres administrador, vuelve a la página principal</span>
-            <button onClick={() => navigate('/admin/submit')} >Ingresar</button>
+            <span>If you're not an admin, go back to the main page</span>
+            <button onClick={() => navigate('/admin/submit')} >Log in</button>
         </div>
     </form>
 }

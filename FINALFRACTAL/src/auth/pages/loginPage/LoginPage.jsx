@@ -21,8 +21,8 @@ export function LoginPage () {
                 <img src="assets\icons\FractalAzul.svg" alt="login" />
             </div>
             <div className={styles.text}>
-                <h3>¡Hola de nuevo!</h3>
-                <p>Para ingresar al modo desarrollador rellena la siguiente información.</p>
+                <h3>Welcome back!</h3>
+                <p>To access admin mode, fill in the following information.</p>
             </div>
             <LoginForm/>
         </section>

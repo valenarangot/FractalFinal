@@ -1,17 +1,25 @@
 import React from "react";
 import './Card2.css'
+import { ButtonFirst } from "../button-first/ButtonFirst";
+import { useNavigate } from 'react-router-dom'
 
-export function Card2(){
-
+export function Card2({items}){
+    
+    const navigate = useNavigate()
+    
     return(
         <div className="card">
-            <h1 className="card-title">Pack 2</h1>
-            <h3 className="card-subtitle">Experimentado</h3>
-            <p className="card-description">-Creation of visual elementes.</p>
-            <p className="card-description2">-Development of wireframes.</p>
-            <p className="card-description3">-Web and mobile interfaces design.</p>
+            <div>
+                <h1 className="card-title">Pack 2</h1>
+                <h3 className="card-subtitle">Experimented</h3>
+            </div>
+            <ul>
+                <li className="card-description">{items.item1}</li>
+                <li className="card-description2">{items.item2}</li>
+                <li className="card-description3">{items.item3}</li>
+            </ul>
             <p className="card-price">$200,000</p>
-            <button className="card-button">Buy</button>
+            <ButtonFirst title='Buy now' onClick={() => navigate('/contact')} />
         </div>
     );
 }

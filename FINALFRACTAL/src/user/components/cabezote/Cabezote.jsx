@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Cabezote.module.css'
+import { ButtonBack } from '../buttonBack/ButtonBack'
 
 const typeInfo = [
   {
@@ -41,6 +42,9 @@ export function Cabezote ({ type }) {
   return (
     <header className={`${styles.Slider} ${backgroundImageClass}`}>
       <div className={styles.TextDiv}>
+        <div className={styles.GoBack}>
+          {type === 'Projects' ? ('') : (<ButtonBack />)}
+        </div>
         <h1 className={styles.Title}>{typeData.title}</h1>
         <p className={styles.Description}>{typeData.description}</p>
       </div>

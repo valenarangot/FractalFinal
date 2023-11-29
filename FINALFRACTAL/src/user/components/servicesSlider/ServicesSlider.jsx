@@ -17,28 +17,28 @@ export function ServicesSlider () {
       text: 'UI Design',
       icon: 'assets/icons/IconUI.svg',
       iconWhite: 'assets/icons/IconWhiteUI.svg',
-      path: '/Services/UX'
+      path: '/Services/UI'
     },
     {
       id: 3,
       text: 'Frontend',
       icon: 'assets/icons/IconFrontend.svg',
       iconWhite: 'assets/icons/IconWhiteFrontend.svg',
-      path: '/Services/UX'
+      path: '/Services/Frontend'
     },
     {
       id: 4,
       text: 'Branding',
       icon: 'assets/icons/IconBranding.svg',
       iconWhite: 'assets/icons/IconWhiteBranding.svg',
-      path: '/Services/UX'
+      path: '/Services/Branding'
     },
     {
       id: 5,
       text: 'Consultancy',
       icon: 'assets/icons/IconConsultancy.svg',
       iconWhite: 'assets/icons/IconWhiteConsultancy.svg',
-      path: '/Services/UX'
+      path: '/Services/Consultancy'
     }
   ]
 

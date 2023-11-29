@@ -64,18 +64,3 @@
     bottom: 100px;
     left: calc(50% - (158px / 2));
   }
-  
-  .card-button {
-    width: 198.492px;
-    height: 56.026px;
-    border-radius: 25.612px;
-    background: var(--Orange, #FF7D00);
-    position: absolute;
-    bottom:30px;
-    left: calc(50% - (198.492px / 2));
-    color: var(--white, #FFF);
-    text-align: center;
-    font-family: Montserrat;
-    font-size:20px;
-    font-weight:500;
-  }

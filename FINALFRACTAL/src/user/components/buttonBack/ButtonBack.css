@@ -9,12 +9,13 @@
     line-height: normal;
     align-items: center;
     display: flex;
-    width: 115px;
+    width: 130px;
     height: 36.866px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
     border-radius: 35px;
+    border: none;
     background: #FFF;
     color: #C522FF;
     margin-right: 10px;
