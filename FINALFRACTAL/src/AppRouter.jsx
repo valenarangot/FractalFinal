@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { ProjectsPage, UserExperiencePage, SubmitPage, TestPage, LandingPage } from './user/pages'
+import { ProjectsPage, UserExperiencePage, SubmitPage, TestPage, LandingPage, ContactPage} from './user/pages'
 import {LoginPage} from './auth/pages/indexAuth'
 
 export function AppRouter () {
@@ -36,6 +36,11 @@ export function AppRouter () {
         <Route
           path='/admin/submit'
           element={<SubmitPage />}
+        />
+
+        <Route
+          path='/Contact'
+          element={<ContactPage />}
         />
 
       </Routes>

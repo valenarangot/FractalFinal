@@ -105,7 +105,7 @@ export function ProjectsPage () {
       <>
         <Header />
         <header>
-            <Cabezote type='Projects' />
+            <Cabezote type='Projects' /> 
             <div className={styles.search}>  
                 <input 
                   type='text' 

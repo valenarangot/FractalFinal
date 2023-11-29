@@ -1,8 +1,12 @@
 //Landing
 
 export * from './landingPage/LandingPage'
+
 //Services
 export * from './servicePages/UserExperiencePage/UserExperiencePage'
+
+//Contact
+export * from './contactPage/contactPage'
 
 //Projects
 export * from './projectsPage/projectsPage'
