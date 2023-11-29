@@ -38,6 +38,7 @@ export const useApp = () => {
         getProjects()
       }, [])
   
+      console.log(imageList);
     return (
       {
         projects,

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { ButtonFirst } from '../button-first/ButtonFirst'
 import { ButtonSecond } from '../button-second/ButtonSecond'
 import { ButtonCancel } from '../buttonCancel/ButtonCancel'
@@ -24,6 +24,7 @@ export function ModalProject ({project, projectImage, onClose}) {
           <ButtonCancel onClick={onClose} />
         </div>
         <Project
+          onClick={onClose}
           project={project}
           projectImage={projectImage}
           designToolLogos={designToolLogos}
@@ -34,22 +35,31 @@ export function ModalProject ({project, projectImage, onClose}) {
   )
 }
 
-export function Project ({ project, projectImage, designToolLogos, codingToolLogos }) {
+export function Project ({ onClick, project, projectImage, designToolLogos, codingToolLogos }) {
   
-  const { id, title, type, members, description } = project
-
-  const background = {
-    backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 19.05%, rgba(0, 0, 0, 0.00) 100%), url(${projectImage})`,
-    backgroundSize: 'cover'
-  }
+  const { id, title, type, members, description, behance } = project
 
   const projectType = type.join(' - ')
   const projectMembers = members.join(', ')
 
+  console.log(behance);
+
+  const RedirectPage = () => {
+    window.open(
+      `${behance}`, "_blank");
+  
+    return <div style={styles.container}>
+      <h1>Going to behance...</h1>
+    </div>
+  }
+
   return (
     
     <div key={id} className={styles.Modal}>
-      <div className={styles.Header} style={background}>
+      <div className={styles.Header} >
+        <div className={styles.HeaderBackground}>
+          <img src={projectImage} className={styles.BackgroundImage}/>
+        </div>
         <div className={styles.HeaderTitle}>
           <h1> {title} </h1>
           <h3> <i>{projectType}</i></h3>
@@ -90,8 +100,8 @@ export function Project ({ project, projectImage, designToolLogos, codingToolLog
         </div>
 
         <div className={styles.ButtonDiv}>
-          <ButtonSecond title='Go back' />
-          <ButtonFirst title='Go to Behance'/>
+          <ButtonSecond title='Go back' onClick={onClick}/>
+          <ButtonFirst title='Go to Behance' onClick={RedirectPage}/>
         </div>
       </div>
     </div>

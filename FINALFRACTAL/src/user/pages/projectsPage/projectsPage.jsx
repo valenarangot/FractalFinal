@@ -53,13 +53,9 @@ export function ProjectsPage () {
         }
       ]
 
+      // Modal
       const [selectedProject,setSelectedProject] = useState(null);
       const [selectedProjectImage,setSelectedProjectImage] = useState(null);
-
-      const [selectedType, setselectedType] = useState('All');
-      const [selectedMember, setselectedMember] = useState('All');
-      const [query, setQuery] = useState('');
-      
 
       const openModal = (project, projectImage) => {
             setSelectedProject(project);
@@ -71,17 +67,23 @@ export function ProjectsPage () {
             setSelectedProjectImage(null);
         };
 
+      // Filtros
+      const [selectedType, setselectedType] = useState('All');
+      const [selectedMember, setselectedMember] = useState('All');
+      const [query, setQuery] = useState('');
+      
+      //Filtros
       const handleTypeChange = (filter) => {
         setselectedType(filter);
       };
-
+      
       const handleMemberChange = (filter) => {
         setselectedMember(filter);
       };
 
       const filteredProjects = projects
-        .filter((project) => {
-          // Filtrar proyectos según el tipo seleccionado
+      .filter((project) => {
+        // Filtrar proyectos según el tipo seleccionado
           if (selectedType === 'All') {
             return true;
           } else {
@@ -101,6 +103,23 @@ export function ProjectsPage () {
           return project.title.toLowerCase().includes(query.toLowerCase());
         });
         
+        // Paginación
+        const [currentPage, setCurrentPage] = useState(1); // Página actual
+        const projectsPerPage = 6; // Número de proyectos por página
+
+        const indexOfLastProject = currentPage * projectsPerPage;
+        const indexOfFirstProject = indexOfLastProject - projectsPerPage;
+        const currentProjects = filteredProjects.slice(indexOfFirstProject, indexOfLastProject);
+          
+          // Cálculo de la cantidad total de páginas
+          const pageNumbers = [];
+          for (let i = 1; i <= Math.ceil(filteredProjects.length / projectsPerPage); i++) {
+            pageNumbers.push(i);
+          }
+          
+          //Cambiar de pagina
+          const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
     return (
       <>
         <Header />
@@ -125,8 +144,8 @@ export function ProjectsPage () {
         </header>
         <div>
             <div className={styles.Projects}>
-                {filteredProjects.length > 0 ? (
-                  filteredProjects.map((project)=>{
+                {currentProjects.length > 0 ? (
+                  currentProjects.map((project)=>{
                     // Obtener la primera palabra del título
                     const firstWord = project.title.split(' ')[0]
                     // Buscar la imagen correspondiente al proyecto actual
@@ -140,6 +159,17 @@ export function ProjectsPage () {
                   )
                 ) : (<h3 className={styles.noMatch}>Sorry, no project matches the filter criteria.</h3>)
               }   
+            </div>
+            <div className={styles.pagination}>
+              {pageNumbers.map((number) => (
+                <button 
+                  key={number} 
+                  onClick={() => paginate(number)}
+                  className={currentPage === number ? styles.selected : styles.notSelected}
+                >
+                  {number}
+                </button>
+              ))}
             </div>
             {selectedProject && <ModalProject project={selectedProject} projectImage={selectedProjectImage} onClose={closeModal}/>}
         </div>

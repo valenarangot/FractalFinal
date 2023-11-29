@@ -80,7 +80,7 @@ body{
                 }
 
 .Projects{
-    margin: 5vh 10vh;
+    margin: 5vh 13vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     padding: 5vh;
@@ -91,3 +91,34 @@ body{
     margin: 0 26vw;
     width: 30vw;
 }
+
+.pagination{
+    display: flex;
+    justify-content: center;
+    gap: 1vw;
+}
+
+    .pagination button{
+        cursor: pointer;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        width: 2.5vw;
+        height: 2.5vw;
+        font-size: 20px;
+        transition: all 0.5s;
+
+        &:hover{
+            opacity: 0.5;
+        }
+    }
+
+        .selected {
+            background-color: var(--Purple); 
+            color: white;
+        }
+
+        .notSelected {
+            background-color: rgba(83, 49, 216, 0.2);
+            color: var(--Purple);
+        }
