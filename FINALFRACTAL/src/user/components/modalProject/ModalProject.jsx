@@ -3,14 +3,10 @@ import { ButtonFirst } from '../button-first/ButtonFirst'
 import { ButtonSecond } from '../button-second/ButtonSecond'
 import { ButtonCancel } from '../buttonCancel/ButtonCancel'
 import { logos } from '../../../data/toolsLogoData'
-import { ProjectData } from '../../../data/projectData'
 import styles from './ModalProject.module.css'
 
-export function ModalProject ({project, onClose}) {
-  console.log(project);
-  // imagess: ['./assets/projects/Project1.png', './assets/projects/Project2.png', './assets/projects/Project3.png'],
-
-  console.log(project.designTools);
+export function ModalProject ({project, projectImage, onClose}) {
+  
   const userDesignTools = project.designTools
   const designToolLogos = Object.keys(userDesignTools)
     .filter((tool) => userDesignTools[tool])
@@ -29,6 +25,7 @@ export function ModalProject ({project, onClose}) {
         </div>
         <Project
           project={project}
+          projectImage={projectImage}
           designToolLogos={designToolLogos}
           codingToolLogos={codingToolLogos}
           />
@@ -37,31 +34,31 @@ export function ModalProject ({project, onClose}) {
   )
 }
 
-export function Project ({ project, designToolLogos, codingToolLogos }) {
+export function Project ({ project, projectImage, designToolLogos, codingToolLogos }) {
   
-  const { id, images, title, type, members, description } = project
+  const { id, title, type, members, description } = project
 
   const background = {
-    backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 19.05%, rgba(0, 0, 0, 0.00) 100%), url(${images})`,
+    backgroundImage: `linear-gradient(0deg, rgba(0, 0, 0, 0.50) 19.05%, rgba(0, 0, 0, 0.00) 100%), url(${projectImage})`,
     backgroundSize: 'cover'
   }
+
+  const projectType = type.join(' - ')
+  const projectMembers = members.join(', ')
 
   return (
     
     <div key={id} className={styles.Modal}>
       <div className={styles.Header} style={background}>
-        {/* <div className={styles.HeaderBackground}>
-          <ImagesGallery images={images} />
-        </div> */}
         <div className={styles.HeaderTitle}>
           <h1> {title} </h1>
-          <h3> <i>{type}</i></h3>
+          <h3> <i>{projectType}</i></h3>
         </div>
       </div>
       <div className={styles.Body}>
         <div className={styles.Info}>
           <div className={styles.InfoDescription}>
-            <h2> Made by: {members}</h2>
+            <h2> Made by: {projectMembers}</h2>
             <p> {description}</p>
           </div>
 
@@ -100,21 +97,3 @@ export function Project ({ project, designToolLogos, codingToolLogos }) {
     </div>
   )
 }
-
-// function ImagesGallery ({ images }) {
-//   return (
-//     <div className={styles.BackgroundImage}>
-//       <img src={images} alt={`Images`} />
-//     </div>
-//   )
-// }
-
-// function ImagesGallery ({ imagess }) {
-//   return (
-//     <div className={styles.BackgroundImages}>
-//       {imagess.map((images, index) => (
-//         <img key={index} src={images} alt={`Images ${index}`} />
-//       ))}
-//     </div>
-//   )
-// }

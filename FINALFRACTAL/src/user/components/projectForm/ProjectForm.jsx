@@ -2,16 +2,127 @@ import React, { useState } from 'react'
 import { ButtonFirst } from '../button-first/ButtonFirst'
 import styles from './ProjectForm.module.css'
 
+import { db } from '../../../config/firebase'
+import { storage } from '../../../config/firebase'
+import { collection, addDoc } from 'firebase/firestore'
+import { ref, uploadBytes } from 'firebase/storage'
+
 export function ProjectForm () {
-  const [selectedImagesCount, setSelectedImagesCount] = useState(0)
+
+  const [imageUpload, setimageUpload] = useState(null)
 
   const handleImageChange = (event) => {
-    const selectedImages = event.target.files
-    if (selectedImages.length <= 5) {
-      setSelectedImagesCount(selectedImages.length)
+    setimageUpload(event.target.files[0])
+  }
+
+  const [formState, setFormState] = useState({
+    title:"",
+    members: [],
+    type: [],
+    description:"",
+    designTools: {
+      Figma: false,
+      Illustrator: false,
+      Photoshop: false,
+      AfterEffects: false,
+      PremierePro: false
+    },
+  codingTools: {
+      React: false,
+      JS: false,
+      HTML: false,
+      CSS: false,
+      Node: false
+  }
+  })
+
+  const handleOnChange = ({ target }) => {
+    const { name, value, type, checked } = target;
+  
+    if (type === 'checkbox') {
+      if (name === 'members') {
+        setFormState(prevFormState => {
+          if (checked) {
+            // Agregar el miembro si está marcado
+            return {
+              ...prevFormState,
+              members: [...prevFormState.members, value]
+            };
+          } else {
+            // Eliminar el miembro si no está marcado
+            return {
+              ...prevFormState,
+              members: prevFormState.members.filter(member => member !== value)
+            };
+          }
+        });
+      }
+      else if (name === 'type') {
+        setFormState(prevFormState => {
+          if (checked) {
+            // Agregar el tipo si está marcado
+            return {
+              ...prevFormState,
+              type: [...prevFormState.type, value]
+            };
+          } else {
+            // Eliminar el tipo si no está marcado
+            return {
+              ...prevFormState,
+              type: prevFormState.type.filter(item => item !== value)
+            };
+          }
+        });
+      }
+       else if (name in formState.designTools || name in formState.codingTools) {
+        // Resto de checkboxes (Coding tools y Design tools)
+        setFormState(prevFormState => {
+          const updatedDesignTools = { ...prevFormState.designTools };
+          const updatedCodingTools = { ...prevFormState.codingTools };
+    
+          if (name in formState.designTools) {
+            // Es una herramienta de diseño
+            updatedDesignTools[name] = checked;
+          } else {
+            // Es una herramienta de codificación
+            updatedCodingTools[name] = checked;
+          }
+    
+          return {
+            ...prevFormState,
+            designTools: updatedDesignTools,
+            codingTools: updatedCodingTools,
+          };
+        });
+      }
     } else {
-      window.alert('You can not select more than 5 images')
-      event.target.value = null
+      // Otros tipos de campos (textareas, inputs, etc.)
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
+    }
+  
+    console.log(formState);
+  };
+
+  
+  const projectsCollectionRef = collection(db, "Projects")
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    try {
+      if(imageUpload == null) return
+      
+      const imageRef = ref(storage, `projectsImages/${formState.title}`)
+      uploadBytes(imageRef, imageUpload).then(() => {
+        alert('image uploaded')
+      })
+
+      await addDoc(projectsCollectionRef, formState)
+
+    } catch(error){
+      console.log(error);
     }
   }
 
@@ -22,42 +133,85 @@ export function ProjectForm () {
 
           {/* Load images */}
           <div className={styles.ImagesSection}>
-            {selectedImagesCount === 0
+            {imageUpload === null
               ? (
                 <img className={styles.LoadImg} src='../assets/icons/IconLoadImage.svg' alt='Load icon' />
                 )
               : (
-                <h2 className={styles.LoadText}>{`${selectedImagesCount}  selected`}</h2>
+                <h2 className={styles.LoadText}>{`image selected`}</h2>
                 )}
             <label htmlFor='file-upload-icon' className={styles.labelInputFile}>
-              <input className={styles.inputFile} type='file' id='file-upload-icon' name='images' accept='image/*' onChange={handleImageChange} multiple />
+              <input 
+                className={styles.inputFile} 
+                type='file' 
+                id='file-upload-icon' 
+                name='images' 
+                accept='image/*' 
+                onChange={handleImageChange}
+              />
               Load Images
             </label>
-            <p className={styles.LoadDescription}>You can upload up to 5 images</p>
+            <p className={styles.LoadDescription}>You can only upload one image</p>
           </div>
 
           {/* Inputs */}
           <div className={styles.InfoSection}>
             <h4 htmlFor='project-title'>Title*</h4>
-            <input className={styles.TitleInput} type='text' id='project-title' name='projectTitle' />
+            <input 
+              className={styles.TitleInput}
+              type='text'
+              id='project-title'
+              name='title'
+              onChange={handleOnChange}
+            />
 
             {/* Type */}
             <h4>Type of project*</h4>
             <div className={styles.Options}>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='projectType' value='UI' /> UI
+                <input 
+                  className={styles.CheckboxInput} 
+                  type='checkbox'
+                  name='type'
+                  value='UI' 
+                  onChange={handleOnChange}
+                /> UI
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='projectType' value='UX' /> UX
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='type'
+                  value='UX'
+                  onChange={handleOnChange}
+                /> UX
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='projectType' value='Branding' /> Branding
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='type'
+                  value='Branding' 
+                  onChange={handleOnChange}
+                /> Branding
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='projectType' value='Frontend' /> Frontend
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='type'
+                  value='Frontend'
+                  onChange={handleOnChange}
+                /> Frontend
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='projectType' value='Consultancy' /> Consultancy
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='type'
+                  value='Consultancy'
+                  onChange={handleOnChange}
+                /> Consultancy
               </label>
             </div>
 
@@ -65,16 +219,40 @@ export function ProjectForm () {
             <h4>Members*</h4>
             <div className={styles.Options}>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='projectMembers' value=' Valentina Arango' /> Valentina Arango
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='members'
+                  value='Valentina Arango'
+                  onChange={handleOnChange}
+                /> Valentina Arango
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='projectMembers' value='Isabella Barona' /> Isabella Barona
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='members'
+                  value='Isabella Barona'
+                  onChange={handleOnChange}
+                /> Isabella Barona
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='projectMembers' value='Juan Camilo Dorado' /> Juan Camilo Dorado
+                <input 
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='members'
+                  value='Juan Camilo Dorado'
+                  onChange={handleOnChange}
+                /> Juan Camilo Dorado
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='projectMembers' value='Andrés Narvaez' /> Andrés Narvaez
+                <input 
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='members'
+                  value='Andrés Narvaez'
+                  onChange={handleOnChange}
+                /> Andrés Narvaez
               </label>
             </div>
 
@@ -82,50 +260,107 @@ export function ProjectForm () {
             <h4>Tools*</h4>
             <div className={styles.Options}>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='designTools' value='Figma' /> Figma
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='Figma'
+                  onChange={handleOnChange}
+                /> Figma
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='designTools' value='Illustrator' /> Illustrator
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='Illustrator'
+                  onChange={handleOnChange}
+                /> Illustrator
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='designTools' value='Photoshop' /> Photoshop
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='Photoshop'
+                  onChange={handleOnChange}
+                /> Photoshop
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='designTools' value='AfterEffects' /> After Effects
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='AfterEffects'
+                  onChange={handleOnChange}
+                /> After Effects
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='designTools' value='PremierePro' /> Premiere Pro
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='PremierePro'
+                  onChange={handleOnChange}
+                /> Premiere Pro
               </label>
             </div>
 
             {/* Coding tools */}
             <div className={styles.Options}>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='programmingTools' value='Github' /> Github
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='React'
+                  onChange={handleOnChange}
+                /> React
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='programmingTools' value='Javascript' /> Javascript
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='JS'
+                  onChange={handleOnChange}
+                /> Javascript
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='programmingTools' value='HTML' /> HTML
+                <input 
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='HTML'
+                  onChange={handleOnChange}
+                /> HTML
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='programmingTools' value='CSS' /> CSS
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='CSS'
+                  onChange={handleOnChange}
+                /> CSS
               </label>
               <label className={styles.CheckboxLabel}>
-                <input className={styles.CheckboxInput} type='checkbox' name='programmingTools' value='NodeJs' /> NodeJs
+                <input
+                  className={styles.CheckboxInput}
+                  type='checkbox'
+                  name='Node'
+                  onChange={handleOnChange}
+                /> NodeJs
               </label>
             </div>
 
             {/* Description */}
             <h4>Description*</h4>
-            <textarea className={styles.DescriptionInput} id='project-description' name='projectDescription' rows='4' cols='50' />
+            <textarea
+              className={styles.DescriptionInput}
+              id='project-description'
+              name='description'
+              rows='4'
+              cols='50'
+              onChange={handleOnChange}
+            />
           </div>
         </div>
       </div>
 
       {/* Submit */}
-      <ButtonFirst title='Send' />
+      <ButtonFirst title='Send' onClick={handleSubmit}/>
     </form>
   )
 }

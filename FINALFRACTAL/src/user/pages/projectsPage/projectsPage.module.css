@@ -3,22 +3,81 @@ body{
 }
 
 .search{
-    background-color: white;
-    border-radius: 50px;
-    width: 70vw;
+    width: 80vw;
     height: 45px;
     margin: -8vh auto 0;
+    gap: 2vw;
     display: flex;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-    input{
+    .search input{
+        background-color: white;
+        border-radius: 50px;
         outline: none;
         border: none;
         border-radius: 50px;
         padding: 0 4vh;
         width: 60vw;
+        font-size: medium;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     }
+
+    .filterDiv{
+        z-index: 2;
+        display: flex;
+        background-color: white;
+        border-radius: 50px;
+        padding: 0 0 0 2vw;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    }
+
+        .filterDiv p{
+            align-self: center;
+        }
+
+        .filterOptions{
+            position: relative;
+            transition: all 0.3s ease;
+            border-radius: 0 50px 50px 0;
+            width: 13vw;
+            text-align: left;
+            margin-left: 2vh;
+
+            &:hover{
+                background-color: rgb(217, 209, 248)
+            }
+        }
+        
+            .selectedFilter{
+                cursor: pointer;
+                padding: 1.3vh;
+                text-align: center;
+                color: black;
+                transition: all 0.3s ease;
+            }
+        
+            .dropdown{
+                position: relative;
+                top: 20%;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                border-radius: 4px;
+                background-color: #fff;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+                .dropdown li {
+                    cursor: pointer;
+                    background-color: #fff;
+                    padding: 8px;
+                    transition: all 0.3s ease;
+                }
+            
+                .dropdown li:hover {
+                    background-color: var(--Purple);
+                    color: white;
+                }
 
 .Projects{
     margin: 5vh 10vh;
@@ -26,4 +85,9 @@ body{
     grid-template-columns: repeat(2, 1fr);
     padding: 5vh;
     gap: 5vh;
+}
+
+.noMatch{
+    margin: 0 26vw;
+    width: 30vw;
 }

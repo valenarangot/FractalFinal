@@ -1,136 +1,180 @@
 import React, {useState} from 'react'
 import { Header, Footer, Cabezote, ProyectCard, ModalProject } from '../../components'
-import {ProjectData} from '../../../data/projectData'
+import { useApp } from '../../hooks/useApp'
 import styles from './ProjectsPage.module.css'
 
 export function ProjectsPage () {
 
-    const filters = [
+  const { projects, imageList } = useApp()
+  
+    const typeFilters = [
         {
           id: 1,
-          text: 'Filters',
-          options: [
-            {
-              id: crypto.randomUUID,
-              text: 'UI'
-            },{
-                id: crypto.randomUUID,
-                text: 'UX'
-              },
-            {
-              id: crypto.randomUUID,
-              text: 'Frontend'
-            },
-            {
-              id: crypto.randomUUID,
-              text: 'Branding'
-            }
-          ]
+          text: 'All'
+        },
+        {
+          id: 2,
+          text: 'UI'
+        },
+        {
+          id: 3,
+          text: 'UX'
+        },
+        {
+          id: 4,
+          text: 'Frontend'
+        },
+        {
+          id: 5,
+          text: 'Branding'
+        }
+      ]
+
+      const memberFilters = [
+        {
+          id: 1,
+          text: 'All'
+        },
+        {
+          id: 2,
+          text: 'Valentina Arango'
+        },
+        {
+          id: 3,
+          text: 'Isabella Barona'
+        },
+        {
+          id: 4,
+          text: 'Andrés Narvaez'
+        },
+        {
+          id: 5,
+          text: 'Juan Camilo Dorado'
         }
       ]
 
       const [selectedProject,setSelectedProject] = useState(null);
+      const [selectedProjectImage,setSelectedProjectImage] = useState(null);
 
-      console.log(ProjectData);
+      const [selectedType, setselectedType] = useState('All');
+      const [selectedMember, setselectedMember] = useState('All');
+      const [query, setQuery] = useState('');
+      
 
-      const openModal = (project) => {
+      const openModal = (project, projectImage) => {
             setSelectedProject(project);
+            setSelectedProjectImage(projectImage);
         };
     
         const closeModal = () => {
             setSelectedProject(null);
+            setSelectedProjectImage(null);
         };
 
+      const handleTypeChange = (filter) => {
+        setselectedType(filter);
+      };
+
+      const handleMemberChange = (filter) => {
+        setselectedMember(filter);
+      };
+
+      const filteredProjects = projects
+        .filter((project) => {
+          // Filtrar proyectos según el tipo seleccionado
+          if (selectedType === 'All') {
+            return true;
+          } else {
+            return project.type.includes(selectedType);
+          }
+        })
+        .filter((project) => {
+          // Filtrar proyectos según el miembro seleccionado
+          if (selectedMember === 'All') {
+            return true;
+          } else {
+            return project.members.includes(selectedMember);
+          }
+        })
+        .filter((project) => {
+          // Filtrar proyectos según el valor de búsqueda
+          return project.title.toLowerCase().includes(query.toLowerCase());
+        });
+        
     return (
       <>
         <Header />
         <header>
             <Cabezote type='Projects' />
             <div className={styles.search}>  
-                <input type='text' placeholder='Search'></input>
-                <FilterOptions className={styles.filter} filters={filters}/>
+                <input 
+                  type='text' 
+                  placeholder='Search by name'
+                  value={query}
+                  onChange={(e) => setQuery(e.target.value)}
+                />
+                <div className={styles.filterDiv}>
+                  <p>Type</p>
+                  <FilterOptions className={styles.filter} filters={typeFilters} selectedFilter={selectedType} onFilterChange={handleTypeChange}/>
+                </div>
+                <div className={styles.filterDiv}>
+                  <p>Member</p>
+                  <FilterOptions className={styles.filter} filters={memberFilters} selectedFilter={selectedMember} onFilterChange={handleMemberChange}/>
+                </div>
             </div>
         </header>
         <div>
             <div className={styles.Projects}>
-                {ProjectData.map((project)=>(
-                    <ProyectCard key={project.id} project={project} onClick={() => openModal(project)}/>
-                    ))}   
+                {filteredProjects.length > 0 ? (
+                  filteredProjects.map((project)=>{
+                    // Obtener la primera palabra del título
+                    const firstWord = project.title.split(' ')[0]
+                    // Buscar la imagen correspondiente al proyecto actual
+                    const projectImage = imageList.find((img) =>
+                    img.includes(firstWord)
+                    )
+                    return(
+                      <ProyectCard key={project.id} project={project} projectImage={projectImage} onClick={() => openModal(project, projectImage)}/>
+                      )
+                    }
+                  )
+                ) : (<h3 className={styles.noMatch}>Sorry, no project matches the filter criteria.</h3>)
+              }   
             </div>
-            {selectedProject && <ModalProject project={selectedProject} onClose={closeModal}/>}
+            {selectedProject && <ModalProject project={selectedProject} projectImage={selectedProjectImage} onClose={closeModal}/>}
         </div>
         <Footer />
       </>
     )
   }
 
+  function FilterOptions ({ filters, selectedFilter, onFilterChange }) {
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  function FilterOptions ({ filters }) {
-    const filterStyles = {
-      display: 'flex',
-      listStyle: 'none',
-      zIndex: '2'
-    }
+    const handleFilterClick = () => {
+      setIsDropdownOpen(!isDropdownOpen);
+    };
+  
+    const handleOptionClick = (option) => {
+      onFilterChange(option.text);
+      setIsDropdownOpen(false);
+    };
   
     return (
-      <nav style={filterStyles}>
-        <ul style={filterStyles}>
-          {
-              filters.map((filter) => {
-                return <Dropdown key={filter.id} filter={filter} />
-              })
-          }
-        </ul>
-      </nav>
-    )
-  }
-  
-  function Dropdown ({ filter }) {
-    const [showList, setShowList] = useState(false)
-    const { id, text, options} = filter
-  
-    const toggleShowList = () => setShowList(true)
-  
-    const toggleState = () => setShowList((prevState) => !prevState)
-  
-    const hoverStyle = {
-      padding: ' 2vh 5vh'
-    }
-  
-    return (
-      <li key={id} onMouseLeave={toggleState}>
-          <a style={hoverStyle} onMouseEnter={toggleShowList}>
-            {text}
-          </a>
-        {
-          showList ? <Dropdownlist options={options} /> : null
-        }
-      </li>
-    )
-  }
-  
-  function Dropdownlist ({ options }) {
-    const liStyle = {
-      listStyle: 'none',
-      backgroundColor: '#ffffff',
-      margin: '0 -5vh',
-      padding: '1vh 2vh',
-      cursor: 'pointer',
-      boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
-      zIndex: '2'
-    }
-    const ulStyle = {
-      borderRadius: '8px'
-    }
-  
-    return (
-      <ul style={ulStyle}>
-        {
-          options?.map(({ id, text }) => {
-            return (<li style={liStyle} key={id}> {text} </li>)
-          })
-        }
-      </ul>
+      <div className={styles.filterOptions}>
+        <div className={styles.selectedFilter} onClick={handleFilterClick}>
+          {selectedFilter}
+        </div>
+        {isDropdownOpen && (
+          <ul className={styles.dropdown}>
+            {filters.map((filter) => (
+              <li key={filter.id} onClick={() => handleOptionClick(filter)}>
+                {filter.text}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     )
   }
   
