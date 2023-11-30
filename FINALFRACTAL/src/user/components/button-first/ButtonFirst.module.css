@@ -19,3 +19,7 @@
   border: solid 2px var(--Orange);
 }
 
+.buttonFirst:disabled {
+  pointer-events: none;
+  background-color: gray;
+ }

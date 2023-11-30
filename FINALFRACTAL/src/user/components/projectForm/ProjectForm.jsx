@@ -1,131 +1,17 @@
 import React, { useState } from 'react'
 import { ButtonFirst } from '../button-first/ButtonFirst'
+import { useProjectForm } from '../../hooks/useProjectForm'
 import styles from './ProjectForm.module.css'
-
-import { db } from '../../../config/firebase'
-import { storage } from '../../../config/firebase'
-import { collection, addDoc } from 'firebase/firestore'
-import { ref, uploadBytes } from 'firebase/storage'
 
 export function ProjectForm () {
 
-  const [imageUpload, setimageUpload] = useState(null)
-
-  const handleImageChange = (event) => {
-    setimageUpload(event.target.files[0])
-  }
-
-  const [formState, setFormState] = useState({
-    title:"",
-    members: [],
-    type: [],
-    description:"",
-    behance: "",
-    designTools: {
-      Figma: false,
-      Illustrator: false,
-      Photoshop: false,
-      AfterEffects: false,
-      PremierePro: false
-    },
-    codingTools: {
-      React: false,
-      JS: false,
-      HTML: false,
-      CSS: false,
-      Node: false
-  }
-  })
-
-  const handleOnChange = ({ target }) => {
-    const { name, value, type, checked } = target;
-  
-    if (type === 'checkbox') {
-      if (name === 'members') {
-        setFormState(prevFormState => {
-          if (checked) {
-            // Agregar el miembro si está marcado
-            return {
-              ...prevFormState,
-              members: [...prevFormState.members, value]
-            };
-          } else {
-            // Eliminar el miembro si no está marcado
-            return {
-              ...prevFormState,
-              members: prevFormState.members.filter(member => member !== value)
-            };
-          }
-        });
-      }
-      else if (name === 'type') {
-        setFormState(prevFormState => {
-          if (checked) {
-            // Agregar el tipo si está marcado
-            return {
-              ...prevFormState,
-              type: [...prevFormState.type, value]
-            };
-          } else {
-            // Eliminar el tipo si no está marcado
-            return {
-              ...prevFormState,
-              type: prevFormState.type.filter(item => item !== value)
-            };
-          }
-        });
-      }
-       else if (name in formState.designTools || name in formState.codingTools) {
-        // Resto de checkboxes (Coding tools y Design tools)
-        setFormState(prevFormState => {
-          const updatedDesignTools = { ...prevFormState.designTools };
-          const updatedCodingTools = { ...prevFormState.codingTools };
-    
-          if (name in formState.designTools) {
-            // Es una herramienta de diseño
-            updatedDesignTools[name] = checked;
-          } else {
-            // Es una herramienta de codificación
-            updatedCodingTools[name] = checked;
-          }
-    
-          return {
-            ...prevFormState,
-            designTools: updatedDesignTools,
-            codingTools: updatedCodingTools,
-          };
-        });
-      }
-    } else {
-      // Otros tipos de campos (textareas, inputs, etc.)
-      setFormState({
-        ...formState,
-        [name]: value,
-      });
-    }
-  
-    console.log(formState);
-  };
-
-  
-  const projectsCollectionRef = collection(db, "Projects")
-
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    try {
-      if(imageUpload == null) return
-      
-      const imageRef = ref(storage, `projectsImages/${formState.title}`)
-      uploadBytes(imageRef, imageUpload).then(() => {
-        alert('image uploaded')
-      })
-
-      await addDoc(projectsCollectionRef, formState)
-
-    } catch(error){
-      console.log(error);
-    }
-  }
+  const { 
+    disableBtn,
+    handleImageChange,
+    handleOnChange,
+    handleSubmit,
+    imageUpload
+  } = useProjectForm()
 
   return (
     <form className={styles.Form}>
@@ -372,7 +258,7 @@ export function ProjectForm () {
 
       {/* Submit */}
       <div className={styles.btn}>
-        <ButtonFirst title='Send' onClick={handleSubmit}/>
+        <ButtonFirst title='Send' onClick={handleSubmit} disabled={disableBtn}/>
       </div>
     </form>
   )

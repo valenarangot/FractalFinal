@@ -43,3 +43,19 @@ h1 {
 #app {
   text-align: center;
 }
+
+.swal-button {
+  background-color: var(--Orange) !important;
+  border-radius: 50px !important;
+  box-shadow: none !important;
+  border: solid 2px transparent !important;
+  transition: all 0.25s;
+  &&:focus{
+    box-shadow: none !important;
+  }
+  &&:hover{
+    background: rgb(250, 235, 225) !important;
+    color: var(--Orange) !important;
+    border: solid 2px var(--Orange) !important;
+  }
+}
