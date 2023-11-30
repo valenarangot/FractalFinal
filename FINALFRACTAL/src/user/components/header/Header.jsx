@@ -23,7 +23,7 @@ export function Header (){
                     <a href="/Projects"><p className={styles.paragraph}>Portfolio</p></a>
                 </li>
                 <li className={styles.item}>
-                    <a href="/"><p className={styles.paragraph}>Contact</p></a>
+                    <a href="/contact"><p className={styles.paragraph}>Contact</p></a>
                 </li>
             </ul>
             
