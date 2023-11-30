@@ -93,13 +93,22 @@
 
 .button{
     align-self: flex-end;
-    font-family: Montserrat;
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: white;
     padding: 1rem 4rem;
-    background-color: #FF7D00;
+    display: inline-block;
+    background-color: var(--Orange); /* Color de fondo del botón */
+    color: #fff; /* Color del texto */
+    font-size: 16px;
     border: none;
-    border-radius: 2rem;
+    border-radius: 50px;
+    transition: all 0.3s;
     cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border: solid 2px transparent;
 }
+
+.button:hover {
+    background: rgb(250, 235, 225);
+    color: var(--Orange);
+    border: solid 2px var(--Orange);
+  }

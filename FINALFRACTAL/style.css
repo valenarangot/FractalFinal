@@ -23,23 +23,34 @@ body {
 
 h1 {
   font-size: 3.2em;
-  font-size: 42px;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 42px;
+  font-size: 90px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.1;
   font-family: Typographica;
-  font-family: Typographica;
-  
 }
 
-/* h1, h2, h3, h4{
-  word-spacing: 0.5vw;
-} */
+h1, h2, h3, h4{
+  word-spacing: 0.6vw;
+}
 
 
 #app {
   text-align: center;
+}
+
+.swal-button {
+  background-color: var(--Orange) !important;
+  border-radius: 50px !important;
+  box-shadow: none !important;
+  border: solid 2px transparent !important;
+  transition: all 0.25s;
+  &&:focus{
+    box-shadow: none !important;
+  }
+  &&:hover{
+    background: rgb(250, 235, 225) !important;
+    color: var(--Orange) !important;
+    border: solid 2px var(--Orange) !important;
+  }
 }

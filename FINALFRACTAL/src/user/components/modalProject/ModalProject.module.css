@@ -48,10 +48,15 @@
     font-weight: bold;
     font-family: Montserrat;
     color: white;
+    font-size: 60px;
 }
 
     .HeaderTitle{
         margin-bottom: 0;
+    }
+
+    .HeaderTitle h1, .HeaderTitle h3, .InfoDescription h2, .InfoTools h2{
+        word-spacing: 0vw;
     }
 
     .BackgroundImage{

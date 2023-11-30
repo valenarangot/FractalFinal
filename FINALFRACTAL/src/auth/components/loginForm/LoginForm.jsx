@@ -1,24 +1,18 @@
 import React from "react"
 import styles from "./LoginForm.module.css"
-import { useNavigate } from 'react-router-dom'
-import { useForm } from "../../hooks/useForm"
+import { useAuth } from "../../hooks/useAuth"
 
 
 export function LoginForm (){
 
     const{
+        handleEmailChange,
+        handlePasswordChange,
         handleSubmit,
-        setEmail,
-        setPassword,
         email,
         password,
-    } = useForm();
+    } = useAuth();
 
-    const navigate = useNavigate();
-
-    // const submitHandler = ()=>{
-    //     console.log("Submit")
-    // }
     return <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.inputs}>
             <div className={styles.inputContainer}>
@@ -28,7 +22,7 @@ export function LoginForm (){
                 id="email"
                 placeholder="123456@gmail.com"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}/>
+                onChange={(e) => handleEmailChange(e.target.value)}/>
             </div>
             <div className={styles.inputContainer}>
                 <label htmlFor="password">Password</label>
@@ -37,7 +31,7 @@ export function LoginForm (){
                 id="password"
                 placeholder="**********"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}/>
+                onChange={(e) => handlePasswordChange(e.target.value)}/>
             </div>
         </div>
         <div className={styles.actions}>
@@ -46,5 +40,3 @@ export function LoginForm (){
         </div>
     </form>
 }
-
-export default LoginForm

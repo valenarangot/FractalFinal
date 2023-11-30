@@ -90,7 +90,12 @@ body{
 .noMatch{
     margin: 0 26vw;
     width: 30vw;
+    word-spacing: 0vw;
 }
+
+    .noMatch h3{
+        word-spacing: 0vw;
+    }
 
 .pagination{
     display: flex;

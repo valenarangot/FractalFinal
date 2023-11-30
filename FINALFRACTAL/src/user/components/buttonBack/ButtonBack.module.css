@@ -1,9 +1,9 @@
-.button-back{
+.buttonBack{
     display: flex;
     justify-content: space-between;
-    margin: 5px;
+    margin: 5vh 0 0 0;
     font-family: 'Montserrat';
-    font-size: 20px;
+    font-size: 18px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -17,12 +17,18 @@
     border-radius: 35px;
     border: none;
     background: #FFF;
-    color: #C522FF;
-    margin-right: 10px;
+    color: var(--Purple);
     cursor: pointer;
+    transition: all 0.3s;
+    border: solid 2px var transparent;
 }
 
-.button-icon {
+.buttonBack:hover{
+    background-color: rgb(234, 228, 255);
+    border: solid 2px var(--Purple);
+}
+
+.buttonIcon {
     margin-right: 10px;
     margin-top: 2px
 }

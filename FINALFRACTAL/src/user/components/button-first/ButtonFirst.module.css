@@ -10,14 +10,16 @@
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  
+  border: solid 2px transparent;
 }
 
 .buttonFirst:hover {
-  background: rgb(249, 216, 195);
+  background: rgb(250, 235, 225);
   color: var(--Orange);
-  border: 2px;
-  border-color: var(--Orange);
-  font-size: 18px;
+  border: solid 2px var(--Orange);
 }
 
+.buttonFirst:disabled {
+  pointer-events: none;
+  background-color: gray;
+ }

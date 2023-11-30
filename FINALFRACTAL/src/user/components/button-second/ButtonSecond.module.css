@@ -1,23 +1,21 @@
 .buttonSecond{
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--Purple); /* Color de fondo del botón */
-    color: #fff; /* Color del texto */
-    font-size: 16px;
-    border: none;
-    border-radius: 50px;
-    transition: all 0.3s;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    
-  }
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--Purple); /* Color de fondo del botón */
+  color: #fff; /* Color del texto */
+  font-size: 16px;
+  border: none;
+  border-radius: 50px;
+  transition: all 0.3s;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
   
-  .buttonSecond:hover {
-    background: rgb(223, 216, 250);
-    color: var(--Purple);
-    border: 2px;
-    border-color: var(--Purple);
-    font-size: 18px;
-  }
-  
+  border: solid 2px transparent;
+}
+
+.buttonSecond:hover {
+  background: rgb(234, 228, 255);
+  color: var(--Purple);
+  border: solid 2px var(--Purple);
+}

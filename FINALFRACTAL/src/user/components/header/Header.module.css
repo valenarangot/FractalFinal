@@ -61,3 +61,99 @@
     border-radius: 2rem;
     cursor: pointer;
 }
+
+
+/* Admin header */
+
+.adminNav{
+    width: 100vw;
+    z-index: 3;
+    position: sticky;
+    Top: 0;
+    Left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3vh 0vw;
+    background-color: var(--Purple);
+    color: white;
+    box-shadow: rgba(117, 117, 117, 0.15) 0px 5px 15px,
+        rgba(55, 0, 255, 0.15) 5px 10px 15px;
+}
+
+.adminNav img{
+    height: 2.5rem;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.adminList{
+    color: #D7D7D7;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0 0;
+}
+
+.adminList a{
+    text-decoration: none;
+}
+
+.adminItem{
+    transition: all ease-in-out 0.3s;
+    cursor: pointer;
+    color: white;
+}
+.adminItem:hover{
+    transform: translateY(-3px);
+}
+
+.adminParagraph{
+    font-family: Montserrat;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--Purple);
+    color: white;
+}
+
+.dropdownWrapper {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    padding: 1rem 2rem;
+    background-color: #5332D8;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    position: relative;
+    color: white;
+  }
+  
+  .dropdownHeader {
+    background-color: var(--Purple);
+    color: white;
+    font-family: Montserrat;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  .dropdownList {
+    position: absolute;
+    top: 100%; /* Aparecerá justo debajo del botón */
+    left: 0;
+    background-color: var(--Purple);
+    border: 1px solid #ccc;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }

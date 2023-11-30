@@ -15,20 +15,23 @@
 
     .contentSection1Left{
         margin-top: 15vh;
-        padding-top: 10vh;
+        padding-top: 1vh;
         padding-left: 9vw;
         text-align: left;
     }
 
         .contentSection1Left h1{
 
-            padding-bottom: 3vh;
+            padding-bottom: -1vh;
         }
 
         .contentSection1Left p{
 
             width: 25vw;    
+            font-size: 18px;
+            padding-top: -1vh;
             padding-bottom: 3vh;
+            
         }
 
         .contentSection1Right{
@@ -39,7 +42,7 @@
 
         .contentSection1Right img{
             width: 60vw;
-            margin-right: 10vw;
+            margin-right: 5vw;
             
           }
 
@@ -56,7 +59,7 @@
     }
 
     .contentSection2Left h1{
-        margin-left: -20vw;
+        margin-left: -9vw;
         padding-left: 0;
         padding-bottom: 10vh;
     }

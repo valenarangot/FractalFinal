@@ -1,12 +1,14 @@
 import React from 'react'
 import {AppRouter} from './AppRouter'
-import {} from './config/firebase'
+import { AuthContextProvider } from './auth/context/AuthContextProvider'
 
 
 function App () {
   return (
     <>
+    <AuthContextProvider>
       <AppRouter />
+    </AuthContextProvider>
     </>
   )
 }

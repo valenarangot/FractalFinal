@@ -31,8 +31,8 @@ export function LandingPage () {
                         <img src="./assets/background-img/fondo2.png" />
                     </div>
                     <div className={styles.contentSection2Right}>
-                        <CardLanding icon='./assets/icons/flag-icon.png' content='At Fractal, our mission is to shape the digital future with creativity, passion and a unique vision. As a young and fresh agency, we are committed to deliver innovative UX/UI, frontend and branding designs that exceed our clients'/>
-                        <CardLanding icon='./assets/icons/eye-icon.png' content='We aspire to lead the vanguard of design and innovation in the digital world. We seek to be the preferred choice for companies and a referenced agency in UX/UI design, frontend and branding, where creativity and innovation are our distinctive mark. '/>
+                        <CardLanding icon='./assets/icons/flag-icon.png' content='Our mission is to shape the digital future with creativity, passion and a unique vision. We are committed to deliver innovative UX/UI, frontend and branding designs.'/>
+                        <CardLanding icon='./assets/icons/eye-icon.png' content='We aspire to lead the vanguard of design and innovation in the digital world. We seek to be the preferred choice for UX/UI design, frontend and branding.'/>
                     </div>
                 </div>
 

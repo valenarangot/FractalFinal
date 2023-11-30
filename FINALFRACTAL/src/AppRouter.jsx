@@ -1,6 +1,6 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { ProjectsPage, UserExperiencePage, UserInterfacePage, FrontendPage, BrandingPage, ConsultancyPage, SubmitPage, LandingPage, ContactPage, ErrorPage} from './user/pages'
+import { ProjectsPage, ServicePrincipalPage, UserExperiencePage, UserInterfacePage, FrontendPage, BrandingPage, ConsultancyPage, SubmitPage, LandingPage, ContactPage, ErrorPage} from './user/pages'
 import {LoginPage} from './auth/pages/indexAuth'
 
 export function AppRouter () {
@@ -19,6 +19,11 @@ export function AppRouter () {
         />
 
         {/* Services */}
+
+        <Route
+          path='/Services'
+          element={<ServicePrincipalPage />}
+        />
         
           <Route
             path='/Services/UX'

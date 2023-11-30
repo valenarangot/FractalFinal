@@ -1,4 +1,4 @@
-  .Form{
+.Form{
     display: flex;
     flex-direction: column;
 
@@ -55,7 +55,7 @@
         height: 48vh;
         padding: 0 3vw;
 
-        margin-right: 5vw;
+        margin-right: 3vw;
 
         border-radius: 20px;
         background: #FFF;
@@ -92,7 +92,7 @@
             }
 
     .CheckboxesSection{
-        width: 60%;
+        width: 65%;
     }
 
         .Options{
@@ -119,4 +119,15 @@
 
 .btn{
     margin: 3vh auto;
+}
+
+.oneOptionIndicator{
+    margin: 0;
+    margin-bottom: 2vh;
+    font-size: small;
+}
+
+.labelTitles{
+    margin-bottom: 0;
+    word-spacing: 0;
 }
