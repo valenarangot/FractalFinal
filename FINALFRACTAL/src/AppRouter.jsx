@@ -61,7 +61,7 @@ export function AppRouter () {
         />
 
         <Route
-          path='/Error'
+          path='/*'
           element={<ErrorPage />}
         />
 

@@ -23,5 +23,4 @@ export * from './team-interaction/TeamInteraction'
 
 export * from './projectForm/ProjectForm'
 export * from './ContactSection/ContactSection'
-export * from './loginForm/LoginForm'
 export * from './contactForm/ContactForm'

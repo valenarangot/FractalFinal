@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from "./LoginPage.module.css"
-import { LoginForm, ButtonBack  } from '../../../user/components'
+import { ButtonBack  } from '../../../user/components'
+import { LoginForm } from '../../components'
 
 
 import { useNavigate } from 'react-router-dom'

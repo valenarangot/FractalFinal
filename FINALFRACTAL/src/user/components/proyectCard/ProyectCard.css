@@ -14,10 +14,11 @@
     justify-content: flex-end;
     color: white;
 
-    &:hover{
-        scale: 1.05;
-        cursor: pointer;
-    }
+}
+
+.proyect-card:hover{
+    scale: 1.05;
+    cursor: pointer;
 }
 
 .proyect-card h2{
