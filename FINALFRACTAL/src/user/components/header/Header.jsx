@@ -40,10 +40,20 @@ export function Header (){
 
     const [isOpen, setIsOpen] = useState(false);
 
+    const [isServicesOpen, setIsServicesOpen] = useState(false);
+
     const handleItemClick = (route) => {
         navigate(route); // Navegar a la ruta correspondiente al hacer clic en un elemento del dropdown
         setIsOpen(false); // Cerrar el dropdown después de hacer clic
     };
+
+    const handleHover = () => {
+        setIsServicesOpen(true)
+    }
+
+    const handleMouseLeave = () => {
+        setIsServicesOpen(false)
+    }
 
     return isLogged ? 
     (
@@ -52,16 +62,25 @@ export function Header (){
 
             <ul className={styles.adminList}>
                 <li className={styles.adminItem}>
-                <a onClick={() => navigate('/')}><p className={styles.adminParagraph}>About us</p></a>
+                    <a onClick={() => navigate('/')}><p className={styles.adminParagraph}>About us</p></a>
+                </li>
+                <li className={styles.adminItem} onMouseEnter={handleHover}>
+                    <a onClick={() => navigate('/services')}><p className={styles.adminParagraph}>Services</p></a>
+                    {isServicesOpen && (
+                        <ul className={styles.dropdownList} onMouseLeave={handleMouseLeave}>
+                            <li onClick={() => navigate('/services/UX')}>UX</li>
+                            <li onClick={() => navigate('/services/UI')}>UI</li>
+                            <li onClick={() => navigate('/services/Frontend')}>Frontend</li>
+                            <li onClick={() => navigate('/services/Branding')}>Branding</li>
+                            <li onClick={() => navigate('/services/Consultancy')}>Consultancy</li>
+                        </ul>
+                    )}                         
                 </li>
                 <li className={styles.adminItem}>
-                <a onClick={() => navigate('/services')}><p className={styles.adminParagraph}>Services</p></a>
+                    <a onClick={() => navigate('/Projects')}><p className={styles.adminParagraph}>Portfolio</p></a>
                 </li>
                 <li className={styles.adminItem}>
-                <a onClick={() => navigate('/Projects')}><p className={styles.adminParagraph}>Portfolio</p></a>
-                </li>
-                <li className={styles.adminItem}>
-                <a onClick={() => navigate('/contact')}><p className={styles.adminParagraph}>Contact</p></a>
+                    <a onClick={() => navigate('/contact')}><p className={styles.adminParagraph}>Contact</p></a>
                 </li>
             </ul>
 
