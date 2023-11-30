@@ -3,9 +3,13 @@ import React, { useState } from "react";
 
 export function AuthContextProvider({ children }){
 
-    const [isLogged, setIsLogged] = useState(false)
+    const initLoggedState = JSON.parse(window.localStorage.getItem('Logged')) ?? false
+    const initEmail = JSON.parse(window.localStorage.getItem('Email')) ?? ''
+    
 
-    const [email, setEmail] = useState("");
+    const [isLogged, setIsLogged] = useState(initLoggedState)
+
+    const [email, setEmail] = useState(initEmail);
     const [password, setPassword] = useState("");
 
     return(

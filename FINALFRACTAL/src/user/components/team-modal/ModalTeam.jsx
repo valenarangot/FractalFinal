@@ -4,16 +4,17 @@ import { ButtonFirst } from '../button-first/ButtonFirst'
 import { ButtonCancel } from '../buttonCancel/ButtonCancel'
 import styles from './ModalTeam.module.css'
 import { logos } from '../../../data/toolsLogoData'
+import { useApp } from '../../hooks/useApp'
+import { useNavigate } from 'react-router-dom'
 
-export function ModalTeam({member, image, onClick, onClose }){
+export function ModalTeam({member, image, onClose }){
     
+    const navigate = useNavigate()
+
     const memberTools = member.tools
     const usedTools = Object.keys(memberTools)
         .filter((tool) => memberTools[tool])
         .map((tool) => logos[tool])
-
-
-
 
     return(
     <div className={styles.Overlay}>
@@ -63,10 +64,6 @@ export function ModalTeam({member, image, onClick, onClose }){
                          
                         </div>
 
-
-
-
-
                         {/* <div className={styles.ContentRight}>
                             <h4>Tools and skills</h4>
                             <ul>
@@ -76,7 +73,7 @@ export function ModalTeam({member, image, onClick, onClose }){
                             </ul>
                         </div> */}
                     </div>
-                <ButtonFirst className={styles.btnFirst} title='See portfolio' onClick={onclick}/>
+                <ButtonFirst className={styles.btnFirst} title='See portfolio' onClick={() => navigate('/projects')}/>
             </div>
             
         </div>

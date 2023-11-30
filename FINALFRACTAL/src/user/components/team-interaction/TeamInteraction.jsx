@@ -4,16 +4,22 @@ import { TeamCard } from '../team-card/TeamCard';
 import { membersData } from '../../../data/membersData';
 import { useMembers } from '../../hooks/useMembers';
 import styles from './TeamInteraction.module.css'
+import { useFilters } from '../../hooks/useFilters'
 
 export function TeamInteraction (){
-    const { members, imageMembers} = useMembers()
+    const { 
+        setselectedMemberFilter,
+      } = useFilters()
 
+    const { members, imageMembers} = useMembers()
+    
     const [selectedMember,setSelectedMember] = useState(null);
     const [selectedImage, setSelectedImage] = useState(null);
 
     const openModal = (member, imageMember) => {
         setSelectedMember(member);
         setSelectedImage(imageMember);
+        setselectedMemberFilter(member.name)
         
         // const TeamCarrousel = document.getElementById("TeamCarrousel")
         // document.TeamCarrousel.classList.add('modal-open')

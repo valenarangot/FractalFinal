@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from '../context/AuthContext';
 import {auth} from "../../config/firebase";
 import {signInWithEmailAndPassword} from "firebase/auth";
@@ -22,6 +22,16 @@ export const useAuth = () =>{
     } = context
     
     const navigate = useNavigate()
+
+    useEffect(() => {
+        window.localStorage.setItem('Logged', (isLogged))
+      }, [isLogged]
+      )
+    
+      useEffect(() => {
+        window.localStorage.setItem('Email', JSON.stringify(email))
+      }, [email]
+      )
 
     const handleSubmit = (e) => {
         e.preventDefault();
