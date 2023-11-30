@@ -19,7 +19,11 @@ export function AppRouter () {
         />
 
         {/* Services */}
-        
+        <Route
+            path='/Services'
+            element={<servicePrincipalPage />}
+          />
+
           <Route
             path='/Services/UX'
             element={<UserExperiencePage />}

@@ -3,6 +3,7 @@
 export * from './landingPage/LandingPage'
 
 //Services
+export * from './servicePages/ServicePrincipalPage/ServicePrincipalPage'
 export * from './servicePages/UserExperiencePage/UserExperiencePage'
 export * from './servicePages/UserInterfacePage/UserInterfacePage'
 export * from './servicePages/FrontendPage/FrontendPage'

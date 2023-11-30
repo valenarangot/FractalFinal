@@ -1,4 +1,5 @@
 export * from './header/Header'
+export * from './headerAdmin/headerAdmin'
 export * from './footer/Footer'
 export * from './cabezote/Cabezote'
 

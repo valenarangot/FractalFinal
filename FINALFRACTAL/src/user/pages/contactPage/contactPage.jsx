@@ -1,11 +1,11 @@
 import React from 'react'
-import { Header, Footer, ContactSection } from '../../components'
+import { HeaderAdmin, Footer, ContactSection } from '../../components'
 
 export function ContactPage () {
 
     return (
       <>
-        <Header />
+        <HeaderAdmin />
         
         <ContactSection/>
 
