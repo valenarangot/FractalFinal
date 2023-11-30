@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { Header, Footer, Cabezote, ProyectCard, ModalProject } from '../../components'
 import { useApp } from '../../hooks/useApp'
-import styles from './ProjectsPage.module.css'
+import styles from './projectsPage.module.css'
 
 export function ProjectsPage () {
 

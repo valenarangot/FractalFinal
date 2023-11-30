@@ -3,25 +3,49 @@ import styles from "./Header.module.css"
 import { ButtonSecond } from "../button-second/ButtonSecond"
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from "../../../auth/hooks/useAuth"
+import { useMembers } from '../../hooks/useMembers';
 
 export function Header (){
     
     const{
         isLogged,
         handleLogOut,
+        email
     } = useAuth();
 
+    const { imageMembers} = useMembers()
 
-  const navigate = useNavigate()
+    console.log(imageMembers);
+    let userLogged;
+     
+        if (email === "valentina.arango.tenorio@gmail.com") {
+            userLogged = "Valentina";
+        } else if (email === "isabella.baronap@gmail.com") {
+            userLogged = "Isabella";
+        } else if (email === "narvaezandresfelipe23@gmail.com") {
+            userLogged = "Andres";
+        } else if (email === "juancdorado2001@gmail.com") {
+            userLogged = "Juan Camilo";
+        } else {
+            userLogged = "User"; // O manejo de error según tu caso
+        }
 
-  const [isOpen, setIsOpen] = useState(false);
+        const userName = userLogged.split(' ')[0]
+        // Buscar la imagen correspondiente al proyecto actual
+        const userPic = imageMembers.find((img) =>
+            img.includes(userName)
+        )
 
-  const handleItemClick = (route) => {
-    navigate(route); // Navegar a la ruta correspondiente al hacer clic en un elemento del dropdown
-    setIsOpen(false); // Cerrar el dropdown después de hacer clic
-  };
+    const navigate = useNavigate()
 
-    return !isLogged ? 
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleItemClick = (route) => {
+        navigate(route); // Navegar a la ruta correspondiente al hacer clic en un elemento del dropdown
+        setIsOpen(false); // Cerrar el dropdown después de hacer clic
+    };
+
+    return isLogged ? 
     (
         <nav className={styles.adminNav}>
             <img onClick={() => navigate('/')} src='../assets/icons/FractalLogo.svg' alt="logo" />
@@ -43,10 +67,13 @@ export function Header (){
 
             <div className={styles.dropdownWrapper}>
                 <button
-                className={styles.dropdownHeader}
-                onClick={() => setIsOpen(!isOpen)}
-                >
-                Nombre
+                    className={styles.dropdownHeader}
+                    onClick={() => setIsOpen(!isOpen)}
+                    >
+                    {userLogged}
+                    <div className={styles.profilePic}>
+                        <img src={userPic}/>
+                    </div>
                 </button>
                 {isOpen && (
                 <ul className={styles.dropdownList}>

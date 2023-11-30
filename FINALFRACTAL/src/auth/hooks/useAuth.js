@@ -29,7 +29,7 @@ export const useAuth = () =>{
         .then((userCredential) => {
             console.log(userCredential);
             setIsLogged(true)
-            console.log(isLogged);
+            console.log(email);
             navigate('/admin/submit');
         })
         .catch((error) =>{
@@ -49,6 +49,8 @@ export const useAuth = () =>{
         e.preventDefault()
         setIsLogged(false)
         console.log(isLogged);
+        setEmail('')
+        setPassword('')
         navigate('/')
      }
 
