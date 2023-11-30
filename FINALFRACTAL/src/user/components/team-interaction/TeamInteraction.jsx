@@ -2,32 +2,48 @@ import React, {useState} from 'react';
 import { ModalTeam } from '../team-modal/ModalTeam';
 import { TeamCard } from '../team-card/TeamCard';
 import { membersData } from '../../../data/membersData';
+import { useMembers } from '../../hooks/useMembers';
 import styles from './TeamInteraction.module.css'
 
 export function TeamInteraction (){
-    const [selectedMember,setSelectedMember] = useState(null);
+    const { members, imageMembers} = useMembers()
 
-    const openModal = (member) => {
+    const [selectedMember,setSelectedMember] = useState(null);
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    const openModal = (member, imageMember) => {
         setSelectedMember(member);
-        const TeamCarrousel = document.getElementById("TeamCarrousel")
-        document.TeamCarrousel.classList.add('modal-open')
+        setSelectedImage(imageMember);
+        
+        // const TeamCarrousel = document.getElementById("TeamCarrousel")
+        // document.TeamCarrousel.classList.add('modal-open')
     };
     
     const closeModal = () => {
         setSelectedMember(null);
-        document.body.classList.remove('modal-open');
+        setSelectedImage(null);
+        // document.body.classList.remove('modal-open');
     };
 
+    console.log(members)
     return(
         
         <div className={styles.modalAction}>
             <h1>Our team</h1>
             <div className={styles.carrouselTeam}>
-            {membersData.map((member)=>(
-                <TeamCard key={member.id} member={member} onClick={() => openModal(member)}/>
-            ))}   
+            {members.map((member)=>{
+                const firstName = member.name.split(' ') [0]
+                const imageMember = imageMembers.find((img) =>
+                img.includes(firstName))
+                return(
+                    <TeamCard key={member.id} member={member} imageMember={imageMember} onClick={() => openModal(member, imageMember)}/>
+                )
+            }
+                
+  
+            )}   
             </div>
-            {selectedMember && <ModalTeam member={selectedMember} onClose={closeModal}/>}
+            {selectedMember && <ModalTeam member={selectedMember} image={selectedImage} onClose={closeModal}/>}
         
         </div>
     )
