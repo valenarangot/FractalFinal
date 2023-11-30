@@ -15,7 +15,7 @@ export function ServicesSlider () {
     {
       id: 2,
       text: 'UI Design',
-      icon: 'assets/icons/IconUI.svg',
+      icon: './assets/icons/IconUI.svg',
       iconWhite: 'assets/icons/IconWhiteUI.svg',
       path: '/Services/UI'
     },
