@@ -1,0 +1,15 @@
+.errorContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vh;
+}
+
+.errorContainer h1{
+    font-size: 80px;
+}
+
+.errorContainer h4{
+    font-size: 20px;
+    color: var(--Purple);
+}

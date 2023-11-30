@@ -1,5 +1,5 @@
 import React from "react";
-import './Card2.css'
+import styles from "./Card2.module.css"
 import { ButtonFirst } from "../button-first/ButtonFirst";
 import { useNavigate } from 'react-router-dom'
 
@@ -8,18 +8,24 @@ export function Card2({items}){
     const navigate = useNavigate()
     
     return(
-        <div className="card">
-            <div>
-                <h1 className="card-title">Pack 2</h1>
-                <h3 className="card-subtitle">Experimented</h3>
+        <div className={styles.card}>
+            <div className={styles.header}>
+                <div className={styles.headerFigure}>
+                    <h1 className={styles.title}>Pack 2</h1>
+                    <h3 className={styles.subtitle}>Experimented</h3>
+                </div>
             </div>
-            <ul>
-                <li className="card-description">{items.item1}</li>
-                <li className="card-description2">{items.item2}</li>
-                <li className="card-description3">{items.item3}</li>
+            <ul className={styles.list}>
+                <li>{items.item1}</li>
+                <li>{items.item2}</li>
+                <li>{items.item3}</li>
             </ul>
-            <p className="card-price">$200,000</p>
-            <ButtonFirst title='Buy now' onClick={() => navigate('/contact')} />
+            <div className={styles.footer}>
+                    <p className={styles.price}>$200,000</p>
+                <div className={styles.btn}>
+                    <ButtonFirst title='Buy now' onClick={() => navigate('/contact')} />
+                </div>
+            </div>
         </div>
     );
 }

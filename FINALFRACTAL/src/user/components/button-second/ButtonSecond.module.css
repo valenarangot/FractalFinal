@@ -11,13 +11,12 @@
     text-align: center;
     text-decoration: none;
     
+    border: solid 2px transparent;
   }
   
   .buttonSecond:hover {
-    background: rgb(223, 216, 250);
+    background: rgb(234, 228, 255);
     color: var(--Purple);
-    border: 2px;
-    border-color: var(--Purple);
-    font-size: 18px;
+    border: solid 2px var(--Purple);
   }
   
