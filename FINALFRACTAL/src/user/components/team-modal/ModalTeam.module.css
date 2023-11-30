@@ -37,6 +37,7 @@ Body{
     top: 0;
     right: 0;
     margin: 2vh;
+    z-index: 2;
 }
 
 .HeaderModal{
@@ -44,12 +45,14 @@ Body{
     height: 40vh;
     margin: 0;
     padding: 0 10vh ;
-    background: linear-gradient(0deg, rgba(253, 122, 0, 0.799) 19.05%, rgba(0, 0, 0, 0.00) 100%);;
-
+    background: transparent;
+    box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     text-align: left;
+    overflow: hidden;
     
 }
 
@@ -60,7 +63,7 @@ Body{
 }
 
 .HeaderModal h3{
-    font-weight: normal;
+    font-weight: 1000;
     margin: 0;
 }
 
@@ -72,6 +75,7 @@ Body{
 .HeaderModal img{
     max-width: 40vw;
     max-height: 40vh;
+    padding-left: 20vw;
 }
 
 .backgroundContent{
@@ -105,12 +109,76 @@ Body{
     }
         .ContentRight h4{
             margin: 0;
+            padding-bottom: 1vh;
         }
 
+        .ToolLogos{
+            margin: 0 0;
+        }
 
+            .ToolLogo{
+                width: 2vw;
+                margin: 0 2vh 3vh 0;
+            }
           
     .btnFirst{
         margin: 0 auto;
       
     }
     
+
+    .wave {
+        position: absolute;
+        width: 90vw;
+        height: 90vw;
+        opacity: 0.6;
+        left: -15%;
+        top: -100%;
+        z-index: -1;
+        /* margin-left: -50%;
+        margin-top: -70%; */
+        background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
+      }
+
+      .wave:nth-child(2){
+        top: 40px
+      }
+.wave:nth-child(3) {
+  top: 120px;
+}
+
+.playing .wave {
+  border-radius: 40%;
+  animation: wave 12000ms infinite linear;
+}
+
+.wave {
+  border-radius: 40%;
+  animation: wave 80s infinite linear;
+}
+
+.playing .wave:nth-child(2) {
+  animation-duration: 15000ms;
+}
+
+.wave:nth-child(2) {
+  animation-duration: 90s;
+}
+
+.playing .wave:nth-child(3) {
+  animation-duration: 17000ms;
+}
+
+.wave:nth-child(3) {
+  animation-duration: 60s;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

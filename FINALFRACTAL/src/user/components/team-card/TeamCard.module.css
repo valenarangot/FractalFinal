@@ -16,9 +16,33 @@
     justify-content: space-between;
     align-items: flex-end;
     text-align: left;
-    margin: 1vh 1vw;
-    padding: 0vh 0.5vw;
+    margin: 0vh 1vw;
+    padding: 0vh;
+    padding-left: 1.5vw;
+    padding-right: 0.5vw;
+
 }
+
+.infoMember{
+  padding: 0vh 0vw;
+  margin: 0vh;
+}
+
+  .infoMember h3{
+    color: white;
+    font-size: larger;
+    font-weight: 1500;
+    margin-bottom: -1vh;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.422);
+
+  }
+
+    .infoMember p{
+      color: aliceblue;
+    }
+
+
+
 
     .cardTeam img{
         margin-right: 0;

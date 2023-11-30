@@ -1,5 +1,5 @@
 export const logos = {
-    Figma: './assets/tools/Figma.png',
+    Figma: './assets/tools/figma.png',
     Adobe: './assets/tools/adobe.png',
     Illustrator: './assets/tools/Illustrator.png',
     Photoshop: './assets/tools/Photoshop.png',
