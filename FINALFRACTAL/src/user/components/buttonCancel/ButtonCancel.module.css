@@ -8,6 +8,8 @@
     border-radius: 50px;
     box-sizing: border-box;
     color: var(--Purple);
+    border: 1.5px solid;
+    border-color: var(--Purple);
     cursor: pointer;
     display: inline-block;
     font-size: 16px;

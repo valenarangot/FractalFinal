@@ -193,7 +193,7 @@ export function ProjectsPage () {
     return (
       <div className={styles.filterOptions}>
         <div className={styles.selectedFilter} onClick={handleFilterClick}>
-          {selectedFilter}
+          {selectedFilter}  <i class="fa fa-caret-down"></i>
         </div>
         {isDropdownOpen && (
           <ul className={styles.dropdown}>

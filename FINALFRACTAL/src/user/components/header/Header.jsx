@@ -74,6 +74,7 @@ export function Header (){
                     <div className={styles.profilePic}>
                         <img src={userPic}/>
                     </div>
+                    <i class="fa fa-caret-down"></i>
                 </button>
                 {isOpen && (
                 <ul className={styles.dropdownList}>
@@ -91,10 +92,10 @@ export function Header (){
 
                 <ul className={styles.list}>
                     <li className={styles.item}>
-                        <a onClick={() => navigate('/services')}><p className={styles.paragraph}>About us</p></a>
+                        <a onClick={() => navigate('/')}><p className={styles.paragraph}>About us</p></a>
                     </li>
                     <li className={styles.item}>
-                        <a onClick={() => navigate('/')}><p className={styles.paragraph}>Services</p></a>
+                        <a onClick={() => navigate('/services')}><p className={styles.paragraph}>Services</p></a>
                     </li>
                     <li className={styles.item}>
                         <a onClick={() => navigate('/Projects')}><p className={styles.paragraph}>Portfolio</p></a>
