@@ -5,7 +5,10 @@ export function Footer () {
     
     return <footer className={styles.footer}>
         <div className={styles.footerTop}>
-            <img src="../assets/icons/FractalLogo.svg" alt="login" />
+            <img 
+                // src="../assets/icons/FractalLogo.svg" 
+                src="/FractalLogo.svg" 
+                alt="login" />
             <ul className={styles.list}>
                 <li><a href="#"><p>Content</p></a></li>
                 <li><a href="#"><p>Information</p></a></li>
@@ -19,19 +22,34 @@ export function Footer () {
             <p>Copyright ©  2010-2021 Fractal Team. All rights reserved.</p>
             <ul className={styles.list}>
                 <li>
-                    <a href="#"><img src="../assets/icons/IconYoutube.svg" alt="youtube" /></a>
+                    <a href="#"><img 
+                                    // src="../assets/icons/IconYoutube.svg"
+                                    src="/IconYoutube.svg"
+                                    alt="youtube" /></a>
                 </li>
                 <li>
-                    <a href="#"><img src="../assets/icons/IconFacebook.svg" alt="facebook" /></a>
+                    <a href="#"><img 
+                                    // src="../assets/icons/IconFacebook.svg" 
+                                    src="/IconFacebook.svg" 
+                                    alt="facebook" /></a>
                 </li>
                 <li>
-                    <a href="#"><img src="../assets/icons/IconTwitter.svg" alt="twitter" /></a>
+                    <a href="#"><img 
+                                    // src="../assets/icons/IconTwitter.svg"
+                                    src="/IconTwitter.svg"
+                                    alt="twitter" /></a>
                 </li>
                 <li>
-                    <a href="#"><img src="../assets/icons/IconInstagram.svg" alt="instagram" /></a>
+                    <a href="#"><img 
+                                    // src="../assets/icons/IconInstagram.svg" 
+                                    src="/IconInstagram.svg" 
+                                    alt="instagram" /></a>
                 </li>
                 <li>
-                    <a href="#"><img src="../assets/icons/IconLinkedin.svg" alt="linkedin" /></a>
+                    <a href="#"><img 
+                                    // src="../assets/icons/IconLinkedin.svg" 
+                                    src="/IconLinkedin.svg" 
+                                    alt="linkedin" /></a>
                 </li>
             </ul>
         </div>

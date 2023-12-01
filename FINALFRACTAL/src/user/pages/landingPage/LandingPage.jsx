@@ -21,18 +21,28 @@ export function LandingPage () {
                         <ButtonFirst onClick={() => navigate('/Projects')} title="See more" />
                     </div>
                     <div className={styles.contentSection1Right}>
-                        <img src="./assets/background-img/fondo1.png"/>
+                        <img 
+                            // src="./assets/background-img/fondo1.png"/>
+                            src="/fondo1.png"/>
                     </div>
                 </div>
 
                 <div className={styles.section2}>
                     <div className={styles.contentSection2Left}>
                         <h1>About us</h1>
-                        <img src="./assets/background-img/fondo2.png" />
+                        <img 
+                            // src="./assets/background-img/fondo2.png" />
+                            src="/fondo2.png" />
                     </div>
                     <div className={styles.contentSection2Right}>
-                        <CardLanding icon='./assets/icons/flag-icon.png' content='Our mission is to shape the digital future with creativity, passion and a unique vision. We are committed to deliver innovative UX/UI, frontend and branding designs.'/>
-                        <CardLanding icon='./assets/icons/eye-icon.png' content='We aspire to lead the vanguard of design and innovation in the digital world. We seek to be the preferred choice for UX/UI design, frontend and branding.'/>
+                        <CardLanding 
+                            // icon='./assets/icons/flag-icon.png' 
+                            icon='/flag-icon.png' 
+                            content='Our mission is to shape the digital future with creativity, passion and a unique vision. We are committed to deliver innovative UX/UI, frontend and branding designs.'/>
+                        <CardLanding 
+                            // icon='./assets/icons/eye-icon.png'
+                            icon='/eye-icon.png'
+                            content='We aspire to lead the vanguard of design and innovation in the digital world. We seek to be the preferred choice for UX/UI design, frontend and branding.'/>
                     </div>
                 </div>
 

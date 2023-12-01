@@ -31,7 +31,10 @@ export function ProjectForm () {
           <div className={styles.ImagesSection}>
             {imageUpload === null
               ? (
-                <img className={styles.LoadImg} src='../assets/icons/IconLoadImage.svg' alt='Load icon' />
+                <img  className={styles.LoadImg} 
+                      // src='../assets/icons/IconLoadImage.svg' 
+                      src='/IconLoadImage.svg' 
+                      alt='Load icon' />
                 )
               : (
                 <h2 className={styles.LoadText}>{`image selected`}</h2>

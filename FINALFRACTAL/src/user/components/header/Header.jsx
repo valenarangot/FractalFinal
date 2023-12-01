@@ -58,7 +58,10 @@ export function Header (){
     return isLogged ? 
     (
         <nav className={styles.adminNav}>
-            <img onClick={() => navigate('/')} src='../assets/icons/FractalLogo.svg' alt="logo" />
+            <img    onClick={() => navigate('/')} 
+                    // src='../assets/icons/FractalLogo.svg' 
+                    src='/FractalLogo.svg' 
+                    alt="logo" />
 
             <ul className={styles.adminList}>
                 <li className={styles.adminItem}>
@@ -107,7 +110,10 @@ export function Header (){
     :
     (
         <nav className={styles.nav}>
-                <img onClick={() => navigate('/')} src='../assets/icons/FractalAzul.svg' alt="logo" />
+                <img    onClick={() => navigate('/')} 
+                        // src='../assets/icons/FractalAzul.svg' 
+                        src='/FractalAzul.svg' 
+                        alt="logo" />
 
                 <ul className={styles.list}>
                     <li className={styles.item}>

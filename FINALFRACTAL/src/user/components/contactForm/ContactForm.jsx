@@ -22,7 +22,10 @@ export function ContactForm() {
     return (
         <section className={styles.section}>
             <header className={styles.header}>
-                <img src="assets\icons\Buzon.svg" alt="mailbox" />
+                <img 
+                    // src="assets\icons\Buzon.svg" 
+                    src="/Buzon.svg" 
+                    alt="mailbox" />
                 <p>{headerText}</p>
             </header>
             <form onSubmit={submitHandler} className={styles.form}>

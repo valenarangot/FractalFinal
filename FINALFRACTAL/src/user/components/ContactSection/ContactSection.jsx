@@ -15,15 +15,24 @@ export function ContactSection () {
                     <h4>What are the next steps?</h4>
                     <ul className={styles.list}>
                         <li className={styles.listItem}>
-                            <img src="assets\icons\dot.svg" alt="dot" />
+                            <img 
+                                // src="assets\icons\dot.svg"
+                                src="/dot.svg"
+                                alt="dot" />
                             <p>1. We'll prepare a proposal.</p>
                         </li>
                         <li className={styles.listItem}>
-                            <img src="assets\icons\dot.svg" alt="dot" />
+                            <img 
+                                // src="assets\icons\dot.svg"
+                                src="/dot.svg"
+                                alt="dot" />
                             <p>2. We'll discuss it.</p>
                         </li>
                         <li className={styles.listItem}>
-                            <img src="assets\icons\dot.svg" alt="dot" />
+                            <img 
+                                // src="assets\icons\dot.svg" 
+                                src="/dot.svg" 
+                                alt="dot" />
                             <p>3. We'll begin building.</p>
                         </li>
                     </ul>

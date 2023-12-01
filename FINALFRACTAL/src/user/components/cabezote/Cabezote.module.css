@@ -17,37 +17,43 @@
     .UI {
         background-image: 
                             var(--DegradadoCabezote)
-                            url('../../../assets/cabezote/SliderUI.png');
+                            /* url('../../../assets/cabezote/SliderUI.png'); */
+                            url('/SliderUI.png');
     }
   
     .UX {
         background-image: 
                             var(--DegradadoCabezote)
-                            url('../../../assets/cabezote/SliderUX.jpg');
+                            /* url('../../../assets/cabezote/SliderUX.jpg'); */
+                            url('/SliderUX.jpg');
     }
 
     .Frontend {
         background-image: 
                             var(--DegradadoCabezote)
-                            url('../../../assets/cabezote/SliderFrontend.png');
+                            /* url('../../../assets/cabezote/SliderFrontend.png'); */
+                            url('/SliderFrontend.png');
     }
 
     .Branding {
         background-image:
                             var(--DegradadoCabezote)
-                            url('../../../assets/cabezote/SliderBranding.jpg');
+                            /* url('../../../assets/cabezote/SliderBranding.jpg'); */
+                            url('/SliderBranding.jpg');
    }
 
     .Consultancy {
         background-image: 
                             var(--DegradadoCabezote)
-                            url('../../../assets/cabezote/SliderConsultancy.jpeg');
+                            /* url('../../../assets/cabezote/SliderConsultancy.jpeg'); */
+                            url('/SliderConsultancy.jpeg');
     }
 
     .Projects {
         background-image:   
                             var(--DegradadoCabezote)
-                            url('../../../assets/cabezote/SliderProjects.png');
+                            /* url('../../../assets/cabezote/SliderProjects.png'); */
+                            url('/SliderProjects.png');
     }
 
 .TextDiv{
