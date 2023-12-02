@@ -119,9 +119,18 @@ export function Header (){
                     <li className={styles.item}>
                         <a onClick={() => navigate('/')}><p className={styles.paragraph}>About us</p></a>
                     </li>
-                    <li className={styles.item}>
-                        <a onClick={() => navigate('/services')}><p className={styles.paragraph}>Services</p></a>
-                    </li>
+                    <li className={styles.item} onMouseEnter={handleHover}>
+                    <a onClick={() => navigate('/services')}><p className={styles.paragraph}>Services</p></a>
+                    {isServicesOpen && (
+                        <ul className={styles.dropdownList} onMouseLeave={handleMouseLeave}>
+                            <li onClick={() => navigate('/services/UX')}>UX</li>
+                            <li onClick={() => navigate('/services/UI')}>UI</li>
+                            <li onClick={() => navigate('/services/Frontend')}>Frontend</li>
+                            <li onClick={() => navigate('/services/Branding')}>Branding</li>
+                            <li onClick={() => navigate('/services/Consultancy')}>Consultancy</li>
+                        </ul>
+                    )}                         
+                </li>
                     <li className={styles.item}>
                         <a onClick={() => navigate('/Projects')}><p className={styles.paragraph}>Portfolio</p></a>
                     </li>
